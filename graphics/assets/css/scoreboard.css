@@ -1,0 +1,197 @@
+#score_container{
+    width: 1920px;
+    height: 123px;
+    font-family: Fyrste;
+}
+#below_clock{
+    margin-top: -24px !important;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+.win_light{
+    background-color: #ffffff;
+    width: 30px;
+    height: 8px;
+}
+#left_win_2{
+    position: relative;
+    right: 40px;
+    top: -8px;
+}
+#left_win_3{
+    position: relative;
+    right: 80px;
+    top: -16px;
+}
+#left_win_4{
+    position: relative;
+    right: 120px;
+    top: -24px;
+}
+.team_card{
+    width: 382px;
+    height: 110px;
+    color: #ffffff;
+}
+#blue_team{
+    position: absolute;
+    top: 13px;
+    left: 469px;
+    clip-path: polygon(0% 0, 100% 0, 100% 100%, 6% 100%);
+}
+#orange_team{
+    position: absolute;
+    top: 13px;
+    left: 1069px;
+    clip-path: polygon(0% 0, 100% 0, 94% 100%, 0% 100%);
+}
+#game_clock{
+    width: 220px;
+    height: 110px;
+    background-color: rgba(33,48,67,0.8);
+    position: absolute;
+    top: 13px;
+    left: 850px;
+    color: #ffffff;
+}
+#time_seconds{
+    position: relative;
+    bottom: 7px;
+}
+.left_score_card{
+    width: 100px;
+    height: 110px;
+    background-color: var(--etsu-primary-navy);
+    color: #ffffff;
+    position: relative;
+    left: 282px;
+}
+.left_team_wins{
+    width: 100px;
+    height: 110px;
+    position: absolute;
+    left: 230px;
+    top: 65px;
+}
+.right_team_wins{
+    width: 100px;
+    height: 110px;
+    position: absolute;
+    left: 125px;
+    top: 65px;
+}
+.win_hide{
+    background-color: rgba(255,255,255, 0.3);
+}
+#right_win_2{
+    position: relative;
+    right: -40px;
+    top: -8px;
+}
+#right_win_3{
+    position: relative;
+    right: -80px;
+    top: -16px;
+}
+#right_win_4{
+    position: relative;
+    right: -120px;
+    top: -24px;
+}
+#right_win_4.bo3{
+    visibility: hidden;
+}
+#left_win_4.bo3{
+    visibility: hidden;
+}
+.right_score_img{
+    width: 282px;
+    height: 86px;
+    background-image: url(../img/RL_TeamCard.png);
+    background-size: cover;
+    position: absolute;
+    left: 100px;
+}
+.left_score_img{
+    width: 282px;
+    height: 86px;
+    background-image: url(../img/RL_Left_TeamCard.png);
+    background-size: cover;
+    position: absolute;
+}
+.left_team_name{
+    height: 110px;
+    color: #ffffff;
+    position: absolute;
+    font-size: 10px;
+    right: 120px;
+    top: 0px;
+    text-align: right !important;
+}
+.right_team_name{
+    height: 110px;
+    color: #ffffff;
+    position: absolute;
+    font-size: 10px;
+    left: 120px;
+    top: 0px;
+    text-align: right !important;
+}
+#left_team_score{
+    position: relative;
+    bottom: 7px;
+}
+#right_team_score{
+    position: relative;
+    bottom: 7px;
+}
+.left_player_list{
+    width: 382px;
+    height: 24px;
+    background-color: var(--etsu-primary-navy);
+    position: relative;
+    text-align: right !important;
+    top: -24px;
+}
+.right_score_card{
+    width: 100px;
+    height: 110px;
+    background-color: var(--etsu-primary-gold);
+    color: #000000;
+    position: relative;
+}
+.right_player_list{
+    width: 382px;
+    height: 24px;
+    background-color: var(--etsu-primary-gold);
+    position: relative;
+    color: #000000;
+    text-align: left !important;
+    top: -24px;
+}
+b#left_player_list{
+    padding-right: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+b#right_player_list{
+    padding-left: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+#game_clock.game_over{
+    visibility: hidden;
+}
+#left_players_container.game_over{
+    visibility: hidden;
+}
+#right_players_container.game_over{
+    visibility: hidden;
+}
+#blue_team.game_over{
+    left: 569px;
+}
+#orange_team.game_over{
+    left: 949px;
+}

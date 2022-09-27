@@ -1,0 +1,244 @@
+#left_players_container{
+    width: 300px;
+    height: 133px;
+    position: absolute;
+    top: 13px;
+    font-family: Fyrste;
+    text-transform: lowercase;
+}
+#right_players_container{
+    width: 300px;
+    height: 133px;
+    position: absolute;
+    top: 13px;
+    left: 1620px;
+    font-family: Fyrste;
+    text-transform: lowercase;
+}
+.boost_number{
+    width: 44px;
+    height: 44px;
+    position: absolute;
+    margin-bottom: 4px;
+    top: 0px;
+}
+.boost_tag{
+    line-height: 30px;
+    padding-right: 10px;
+}
+.boost_tag_right{
+    line-height: 30px;
+    padding-left: 20px;
+}
+
+
+#team_0_player_1,#team_0_player_2,#team_0_player_3{
+    /*background: linear-gradient(90deg, rgba(33,48,67,0.7) 0%, rgba(24,115,255,0.8) 100%);*/
+    background-color: rgba(33,48,67,0.8);
+    clip-path: polygon(0 0, 98% 0, 100% 100%, 0% 100%);
+
+}
+#team_1_player_1,#team_1_player_2,#team_1_player_3{
+    /*background: linear-gradient(270deg, rgba(33,48,67,0.7) 0%, rgba(244,141,46,0.8) 100%);*/
+    background-color: rgba(33,48,67,0.8);
+    clip-path: polygon(2% 0, 100% 0, 100% 100%, 0% 100%);
+}
+.player_boost_bar{
+    width: 300px;
+    height: 44px;
+    margin-bottom: 4px;
+    color: #ffffff;
+}
+.boost_bar{
+    background-color: rgb(255,255,255,0.2);
+    width: 100%;
+}
+.boost_bar_right{
+    float: right;
+}
+#team_0_player_1_boost_bar,#team_0_player_2_boost_bar,#team_0_player_3_boost_bar.boost_bar_fill{
+    background-color: rgba(24,115,255,1);
+    position: relative;
+    bottom: 4px;
+    height: 10px;
+    width: 10%;
+    transition: all 0.2s cubic-bezier(.03,.56,1,.39);
+    clip-path: polygon(0 0, 98% 0, 100% 100%, 0% 100%);
+}
+#team_1_player_1_boost_bar,#team_1_player_2_boost_bar,#team_1_player_3_boost_bar.boost_bar_fill{
+    background-color: rgba(244,141,46,1);
+    position: relative;
+    bottom: 4px;
+    height: 10px;
+    width: 10%;
+    transition: all 0.2s cubic-bezier(.03,.56,1,.39);
+    clip-path: polygon(2% 0, 100% 0, 100% 100%, 0% 100%);
+}
+.boost_bar_fill_right{
+    float: right;
+}
+.middle{
+    width: 310px;
+}
+.bottom{
+    width: 320px;
+}
+.middle_right{
+    position: relative;
+    right: 10px;
+    width: 310px;
+}
+.bottom_right{
+    position: relative;
+    right: 20px;
+    width: 320px;
+}
+.boost_top_left{
+    position: absolute;
+    left: 256px;
+}
+.boost_middle_left{
+    position: absolute;
+    top: 48px;
+    left: 266px;
+}
+.boost_bottom_left{
+    position: absolute;
+    top: 96px;
+    left: 276px;
+}
+.left{
+    text-align: left !important;
+}
+h3.left_text{
+    margin-left: 20px !important;
+    line-height: 30px;
+}
+.right{
+    text-align: right !important;
+}
+h3.right_text{
+    margin-right: 20px !important;
+    line-height: 30px;
+}
+
+.player_focused_left{
+    background: none !important;
+    background-color: rgb(17, 72, 153) !important;
+}
+.player_focused_right{
+    background: none !important;
+    background-color: rgb(165, 90, 19) !important;
+}
+
+.events_active_left{
+    background: none !important;
+    background-color: rgb(17, 72, 153) !important;
+}
+.events_active_right{
+    background: none !important;
+    background-color: rgb(165, 90, 19) !important;
+}
+
+#team_0_player_1_events{
+    width: 100px;
+    height: 44px;
+    margin-bottom: 4px;
+    position: absolute;
+    top: 0px;
+    left: 293px;
+    clip-path: polygon(0 0, 94% 0, 100% 100%, 6% 100%);
+}
+#team_0_player_2_events{
+    width: 100px;
+    height: 44px;
+    margin-bottom: 4px;
+    position: absolute;
+    top: 48px;
+    left: 303px;
+    clip-path: polygon(0 0, 94% 0, 100% 100%, 6% 100%);
+}
+#team_0_player_3_events{
+    width: 100px;
+    height: 44px;
+    margin-bottom: 4px;
+    position: absolute;
+    top: 96px;
+    left: 313px;
+    clip-path: polygon(0 0, 94% 0, 100% 100%, 6% 100%);
+}
+
+
+#team_1_player_1_events{
+    width: 100px;
+    height: 44px;
+    margin-bottom: 4px;
+    position: absolute;
+    top: 0px;
+    right: 293px;
+    clip-path: polygon(6% 0, 100% 0, 96% 100%, 0% 100%);
+}
+#team_1_player_2_events{
+    width: 100px;
+    height: 44px;
+    margin-bottom: 4px;
+    position: absolute;
+    top: 48px;
+    right: 303px;
+    clip-path: polygon(6% 0, 100% 0, 96% 100%, 0% 100%);
+}
+#team_1_player_3_events{
+    width: 100px;
+    height: 44px;
+    margin-bottom: 4px;
+    position: absolute;
+    top: 96px;
+    right: 313px;
+    clip-path: polygon(6% 0, 100% 0, 96% 100%, 0% 100%);
+}
+
+#team_0_player_1_events_icon_1,#team_0_player_2_events_icon_1,#team_0_player_3_events_icon_1{
+    top: 2px;
+    left: 10px;
+    position: absolute;
+    height: 40px;
+    width: 40px;
+}
+#team_0_player_1_events_icon_2,#team_0_player_2_events_icon_2,#team_0_player_3_events_icon_2{
+    top: 2px;
+    left: 50px;
+    position: absolute;
+    height: 40px;
+    width: 40px;
+}
+
+#team_1_player_1_events_icon_1,#team_1_player_2_events_icon_1,#team_1_player_3_events_icon_1{
+    top: 2px;
+    left: 50px;
+    position: absolute;
+    height: 40px;
+    width: 40px;
+}
+#team_1_player_1_events_icon_2,#team_1_player_2_events_icon_2,#team_1_player_3_events_icon_2{
+    top: 2px;
+    left: 10px;
+    position: absolute;
+    height: 40px;
+    width: 40px;
+}
+
+.icon_shot{
+    background-image: url(../img/SHOT_ICON.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.icon_save{
+    background-image: url(../img/SAVE_ICON.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.icon_demo{
+    background-image: url(../img/DEMO_ICON.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}

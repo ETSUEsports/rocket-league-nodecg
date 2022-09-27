@@ -1,0 +1,21 @@
+{
+    "assister": {
+        "id": "Sultan_6",
+        "name": "Sultan"
+    },
+    "ball_last_touch": {
+        "player": "Storm_5",
+        "speed": 25.532968521118164
+    },
+    "goalspeed": 61.88399887084961,
+    "goaltime": 30,
+    "impact_location": {
+        "X": 0.7774999737739563,
+        "Y": 0.8536874651908875
+    },
+    "scorer": {
+        "id": "Storm_5",
+        "name": "Storm",
+        "teamnum": 1
+    }
+}

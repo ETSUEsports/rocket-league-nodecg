@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<style>
+		table, th, td {
+			border: 1px solid;
+			color: #ffffff;
+			border-collapse: collapse;
+			padding: 10px;
+		}
+        h2{
+            font-size: 60px;
+            line-height: 2px;
+        }
+        .tablecontain{
+            margin-right: 500px;
+            margin-left: 500px;
+            transform: scale(0.8);
+        }
+        #play_by_play_text{
+            color: #ffffff;
+        }
+	</style>
+</head>
+<body>
+	<div class="row">
+		<div class="col s12"><h2 class="center-align">Game Clock: <span id="game_clock">0:00</span></h2></div>
+		<div class="col s12"><h2 class="center-align">Game State: <span id="game_state"></span></h2></div>
+		<div class="col s12"><h2 class="center-align">Game Count: <span id="game_count">1</span>/7</h2></div>
+	</div>
+    <div class="tablecontain">
+		<table border="1">
+			<tr>
+		  		<th><h1>Left Team - <b><span id="left_score">0</span></b></h1></th>
+		  		<th><h1>Right Team - <b><span id="right_score">0</span></b></h1></th>
+			</tr>	
+			<tr>
+				<th><h4>Wins: <b><span id="left_wins">0</span></b></h4></th>
+				<th><h4>Wins: <b><span id="right_wins">0</span></b></h4></th>
+	  		</tr>
+			<tr>
+				<th><h4>Loses: <b><span id="left_lost">0</span></b></h4></th>
+				<th><h4>Loses: <b><span id="right_lost">0</span></b></h4></th>
+	  		</tr>
+			<tr>
+				<th><h4>Players:<br><span id="left_players"> N/A</h4></span>
+			</th>
+				<th><h4>Players:<br><span id="right_players"> N/A</h4></span>
+	  		</tr>
+	  	</table>
+    </div>
+    <h5 class="center-align">Game History Events</h5>
+    <div id="play_by_play">
+        <table id="play_by_play_table" class="striped">
+            <thead>
+              <tr>
+                  <th>Event Time</th>
+                  <th>Event Type</th>
+                  <th>Event Description</th>
+              </tr>
+            </thead>
+            <tbody">
+            </tbody>
+        </table>
+    </div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="rl-caster.js"></script>
+</body>
+</html>

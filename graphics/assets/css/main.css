@@ -1,0 +1,30 @@
+:root {
+    --etsu-primary-navy: #041E42;
+    --etsu-primary-gold: #FFC72C;
+    --rl-primary-blue: #1873FF;
+    --rl-primary-orange: #f48d2e;
+    font-variant-numeric: tabular-nums;
+}
+@font-face {
+    font-family: Fyrste;
+    src: url("../fonts/fyrste.ttf") format("truetype");
+}
+.white_text{
+    color: #ffffff !important;
+}
+.black_text{
+    color: #000000 !important;
+}
+#main_container{
+    width: 1920px;
+    height: 1080px;
+    position: relative;
+}
+.replay_active{
+    background-image: url("../img/Replay.png");
+    background-repeat: no-repeat;
+}
+.scoreboard_active{
+    /*background-image: url("../img/replay_overlay.png");*/
+    background-repeat: no-repeat;
+}

@@ -1,0 +1,189 @@
+<!doctype html>
+<html translate="no">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- bootstrap -->
+        <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+        <!-- main styles -->
+        <link rel="stylesheet" href="./assets/css/main.css">
+        <link rel="stylesheet" href="./assets/css/scoreboard.css">
+        <link rel="stylesheet" href="./assets/css/player_stats.css">
+        <link rel="stylesheet" href="./assets/css/players_list.css">
+    </head>
+    <body>
+        <div class="scoreboard_active game_over" id="main_container">
+            <div class="text-center" id="score_container">
+                <!-- Start Left Team -->
+                <div class="team_card" id="blue_team">
+                    <div class="left_score_img">
+                    </div>
+                    <div class="left_score_card">
+                        <h1 id="left_team_score" class="white_text" style="font-size: 5em;"></h1>
+                    </div>
+                    <div class="left_team_name">
+                        <h1 id="left_team_name" class="white_text" style="font-size: 5em;"></h1>
+                    </div>
+                    <div class="left_team_wins">
+                        <div id="left_win_1" class="win_light win_hide"></div>
+                        <div id="left_win_2" class="win_light win_hide"></div>
+                        <div id="left_win_3" class="win_light win_hide"></div>
+                        <div id="left_win_4" class="win_light win_hide"></div>
+                    </div>
+                    <div class="left_player_list">
+                        <b id="left_player_list" class="white_text"></b>
+                    </div>
+                </div>
+                <!-- End Left Team -->
+                <!-- Start Game Clock -->
+                <div id="game_clock">
+                    <h1 id="time_seconds" style="font-size: 5em;"></h1>
+                    <div id="below_clock">
+                        <b>Game <span id="game_id">...</span></b> - Best of <span id="best_of_count">3</span>
+                    </div>
+                </div>
+                <!-- End Game Clock -->
+                <!-- Start Right Team  -->
+                <div class="team_card" id="orange_team">
+                    <div class="right_score_img">
+                    </div>
+                    <div class="right_score_card">
+                        <h1 id="right_team_score" class="black_text" style="font-size: 5em;"></h1>
+                    </div>
+                    <div class="right_team_name">
+                        <h1 id="right_team_name" class="white_text" style="font-size: 5em;"></h1>
+                    </div>
+                    <div class="right_team_wins">
+                        <div id="right_win_1" class="win_light win_hide"></div>
+                        <div id="right_win_2" class="win_light win_hide"></div>
+                        <div id="right_win_3" class="win_light win_hide"></div>
+                        <div id="right_win_4" class="win_light win_hide"></div>
+                    </div>
+                    <div class="right_player_list">
+                        <b id="right_player_list" class="black_text"></b>
+                    </div>
+                </div>
+                <!-- End Right Team -->
+            </div>
+            <!-- Start Left Players -->
+            <div id="left_players_container" class="left">
+                <div id="team_0_player_1" class="player_boost_bar top">
+                    <h3 class="left_text" id="team_0_player_1_name">Player 1</h3>
+                    <div class="boost_number boost_top_left">
+                        <h4 class="boost_tag text-center" id="team_0_player_1_boost">100</h4>
+                    </div>
+                    <div class="boost_bar">
+                        <div class="boost_bar_fill" id="team_0_player_1_boost_bar"></div>
+                    </div>
+                </div>
+                <div id="team_0_player_1_events" class="top">
+                    <i id="team_0_player_1_events_icon_1"></i>
+                    <i id="team_0_player_1_events_icon_2"></i>
+                </div>
+                <div id="team_0_player_2" class="player_boost_bar middle">
+                    <h3 class="left_text" id="team_0_player_2_name">Player 2</h3>
+                    <div class="boost_number boost_middle_left">
+                        <h4 class="boost_tag text-center" id="team_0_player_2_boost">100</h4>
+                    </div>
+                    <div class="boost_bar">
+                        <div class="boost_bar_fill" id="team_0_player_2_boost_bar"></div>
+                    </div>
+                </div>
+                <div id="team_0_player_2_events" class="middle">
+                    <i id="team_0_player_2_events_icon_1"></i>
+                    <i id="team_0_player_2_events_icon_2"></i>
+                </div>
+                <div id="team_0_player_3" class="player_boost_bar bottom">
+                    <h3 class="left_text" id="team_0_player_3_name">Player 3</h3>
+                    <div class="boost_number boost_bottom_left">
+                        <h4 class="boost_tag text-center" id="team_0_player_3_boost">100</h4>
+                    </div>
+                    <div class="boost_bar">
+                        <div class="boost_bar_fill" id="team_0_player_3_boost_bar"></div>
+                    </div>
+                </div>
+                <div id="team_0_player_3_events" class="bottom">
+                    <i id="team_0_player_3_events_icon_1"></i>
+                    <i id="team_0_player_3_events_icon_2"></i>
+                </div>
+            </div>
+            <!-- End Left Players -->
+            <!-- Start Right Players -->
+            <div id="right_players_container" class="right">
+                <div id="team_1_player_1" class="player_boost_bar top_right">
+                    <h3 class="right_text" id="team_1_player_1_name">Player 1</h3>
+                    <div class="boost_number">
+                        <h4 class="boost_tag boost_tag_right text-center" id="team_1_player_1_boost">100</h4>
+                    </div>
+                    <div class="boost_bar boost_bar_right">
+                        <div class="boost_bar_fill boost_bar_fill_right" id="team_1_player_1_boost_bar"></div>
+                    </div>
+                </div>
+                <div id="team_1_player_1_events" class="top">
+                    <i id="team_1_player_1_events_icon_1"></i>
+                    <i id="team_1_player_1_events_icon_2"></i>
+                </div>
+                <div id="team_1_player_2" class="player_boost_bar middle_right">
+                    <h3 class="right_text" id="team_1_player_2_name">Player 2</h3>
+                    <div class="boost_number">
+                        <h4 class="boost_tag boost_tag_right text-center" id="team_1_player_2_boost">100</h4>
+                    </div>
+                    <div class="boost_bar boost_bar_right">
+                        <div class="boost_bar_fill boost_bar_fill_right" id="team_1_player_2_boost_bar"></div>
+                    </div>
+                </div>
+                <div id="team_1_player_2_events" class="middle">
+                    <i id="team_1_player_2_events_icon_1"></i>
+                    <i id="team_1_player_2_events_icon_2"></i>
+                </div>
+                <div id="team_1_player_3" class="player_boost_bar bottom_right">
+                    <h3 class="right_text" id="team_1_player_3_name">Player 3</h3>
+                    <div class="boost_number">
+                        <h4 class="boost_tag boost_tag_right text-center" id="team_1_player_3_boost">100</h4>
+                    </div>
+                    <div class="boost_bar boost_bar_right">
+                        <div class="boost_bar_fill boost_bar_fill_right" id="team_1_player_3_boost_bar"></div>
+                    </div>
+                </div>
+                <div id="team_1_player_3_events" class="bottom">
+                    <i id="team_1_player_3_events_icon_1"></i>
+                    <i id="team_1_player_3_events_icon_2"></i>
+                </div>
+            </div>
+            <!-- End Right Players -->
+            <!-- Start Player Stats -->
+            <div id="player_stats_container" style="visibility: hidden;">
+                <span class="player_stats_large_text" id="player_stats_name">Player Name</span>
+                <span class="player_stats_large_text" id="player_stats_score">Score</span>
+                <span class="player_stats_small_text">Score</span>
+                <span class="player_stats_large_text" id="player_stats_goals">Goals</span>
+                <span class="player_stats_small_text">Goals</span>
+                <span class="player_stats_large_text" id="player_stats_shots">Shots</span>
+                <span class="player_stats_small_text">Shots</span>
+                <span class="player_stats_large_text" id="player_stats_asst">Asst</span>
+                <span class="player_stats_small_text">Assists</span>
+                <span class="player_stats_large_text" id="player_stats_saves">Saves</span>
+                <span class="player_stats_small_text">Saves</span>
+            </div>
+            <!-- End Player Stats -->
+            <!-- Start Player Stats Accent Bar -->
+            <div id="player_stats_accent_bar" style="visibility: hidden;"></div>
+            <!-- End Player Stats Accent Bar -->
+        </div>
+        <script>
+            window.REPLAY_STATS = {};
+        </script>
+        <!-- Bootstrap JS -->
+        <script src="./assets/js/bootstrap.bundle.min.js"></script>
+        <!-- jQuery Dependency -->
+        <script src="./assets/js/jquery-3.6.0.min.js"></script>
+        <!-- WebSocket Connection -->
+        <script src="./assets/js/ws.js"></script>
+        <!-- Main Script -->
+        <script src="./assets/js/main.js"></script>
+        <!-- WebSocket Events -->
+        <script src="./assets/js/ws-events.js"></script>
+        <!-- Stat Feed -->
+        <script src="./assets/js/statfeed.js"></script>
+    </body>
+</html>

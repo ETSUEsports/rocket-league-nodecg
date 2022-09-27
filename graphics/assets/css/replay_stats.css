@@ -1,0 +1,59 @@
+#replay_stats_container{
+    width: 1040px;
+    height: 75px;
+    position: absolute;
+    bottom: 40px;
+    left: 440px;
+    font-family: Fyrste;
+    text-transform: lowercase;
+    background-color: rgba(33,48,67,0.8);
+    color: #ffffff;
+}
+span.replay_stats_large_text{
+    font-size: 50px;
+    margin-left: 20px !important;
+    line-height: 70px;
+}
+span.icon_text{
+    font-size: 50px;
+    margin-left: 20px !important;
+    line-height: 70px;
+    left: 50px;
+    position: relative;
+}
+#replay_stats_team_container{
+    position: absolute;
+}
+#replay_stats_name_container{
+    position: absolute;
+    left: 300px;
+}
+#replay_stats_asst_container{
+    position: absolute;
+    left: 700px;
+}
+span.replay_stats_small_text{
+    font-size: 25px;
+    padding: 5px 0;
+    margin-left: 0px !important;
+}
+.replay_stats_icon_goal{
+    background-image: url(../img/GOAL_ICON.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 64px;
+    width: 64px;
+    top: 5.5px;
+    display: inline;
+    position: absolute;
+}
+.replay_stats_icon_asst{
+    background-image: url(../img/ASST_ICON.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 64px;
+    width: 64px;
+    top: 5.5px;
+    display: inline;
+    position:absolute;
+}

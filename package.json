@@ -1,0 +1,66 @@
+{
+  "name": "etsu-rl",
+  "version": "0.0.0",
+  "description": "",
+  "homepage": "",
+  "author": {
+    "name": "Russell Payne",
+    "email": "payner3@etsu.edu",
+    "url": ""
+  },
+  "files": [
+    "dashboard",
+    "graphics",
+    "extension.js",
+    "extension"
+  ],
+  "keywords": [
+    "",
+    "nodecg-bundle"
+  ],
+  "nodecg": {
+    "compatibleRange": "^1.1.1",
+    "dashboardPanels": [
+      {
+        "name": "Rocket League",
+        "title": "Rocket League",
+        "fullbleed": true,
+        "file": "rl-home.html",
+        "headerColor": "#525F78"
+      },
+      {
+        "name": "Rocket League - Casters",
+        "title": "Rocket League - Casters",
+        "fullbleed": true,
+        "file": "rl-caster.html",
+        "headerColor": "#525F78"
+      }
+    ],
+    "graphics": [
+      {
+        "file": "index.html",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "file": "replay.html",
+        "width": 1920,
+        "height": 1080
+      }
+    ],
+    "assetCategories": [
+      {
+        "name": "left_team_score_card",
+        "title": "Left Team Score Card (Left Aligned - 282px x 86px)",
+        "allowedTypes": ["jpg", "jpeg", "gif", "png"]
+      },
+      {
+        "name": "right_team_score_card",
+        "title": "Right Team Score Card (Right Aligned - 282px x 86px)",
+        "allowedTypes": ["jpg", "jpeg", "gif", "png"]
+      }
+    ]
+  },
+  "repository": "https://github.com/nodecg/nodecg.git",
+  "license": "Apache-2.0"
+}

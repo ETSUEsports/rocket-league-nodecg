@@ -1,0 +1,16 @@
+{
+    "ball": {
+        "location": {
+            "X": 76.00676727294922,
+            "Y": 0.6604987382888794,
+            "Z": -0.7171871662139893
+        },
+        "post_hit_speed": 30.047822952270508,
+        "pre_hit_speed": 0.5
+    },
+    "match_guid": "21A43B7811ED2289958CF6ABD4D6D057",
+    "player": {
+        "id": "Hollywood_2",
+        "name": "Hollywood"
+    }
+}

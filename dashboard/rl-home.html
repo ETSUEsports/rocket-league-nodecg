@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<style>
+		table, th, td {
+			border: 1px solid;
+			color: #ffffff;
+			border-collapse: collapse;
+			padding: 10px;
+		}
+        h2{
+            font-size: 50px;
+            line-height: 2px;
+        }
+        h1{
+            line-height: 10px;
+        }
+		.button_row{
+			padding-top: 10px;
+		}
+		.overtime{
+			color: #ff0000;
+		}
+		label{
+			color: #ffffff;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col s12"><h2 class="center-align">Game Clock: <span id="game_clock">0:00</span></h2></div>
+			<div class="col s12"><h2 class="center-align">Game State: <span id="game_state"></span></h2></div>
+			<div class="col s12"><h2 class="center-align">Game Count: <span id="game_count">1</span>/<span id="game_max_count">5</span></h2></div>
+		</div>
+		<table border="1">
+			<tr>
+		  		<th><h1><span id="left_team_name"></span> - <b><span id="left_score">0</span></b></h1></th>
+		  		<th><h1><span id="right_team_name"></span> - <b><span id="right_score">0</span></b></h1></th>
+			</tr>	
+			<tr>
+				<th><h4>Wins: <b><span id="left_wins">0</span></b></h4><button class="btn waves-effect waves-light btn-large" onclick="addW('left')"><i class="material-icons left">add</i>Add Win</button> <button class="btn waves-effect waves-light btn-large red" onclick="delW('left')"><i class="material-icons left">remove</i>Remove Win</button></th>
+				<th><h4>Wins: <b><span id="right_wins">0</span></b></h4><button class="btn waves-effect waves-light btn-large" onclick="addW('right')"><i class="material-icons left">add</i>Add Win</button> <button class="btn waves-effect waves-light btn-large red" onclick="delW('right')"><i class="material-icons left">remove</i>Remove Win</button></th>
+	  		</tr>
+			<tr>
+				<th><h4>Loses: <b><span id="left_lost">0</span></b></h4><button class="btn waves-effect waves-light btn-large" onclick="addL('left')"><i class="material-icons left">add</i>Add Loss</button> <button class="btn waves-effect waves-light btn-large red" onclick="delL('left')"><i class="material-icons left">remove</i>Remove Loss</button></th>
+				<th><h4>Loses: <b><span id="right_lost">0</span></b></h4><button class="btn waves-effect waves-light btn-large" onclick="addL('right')"><i class="material-icons left">add</i>Add Loss</button> <button class="btn waves-effect waves-light btn-large red" onclick="delL('right')"><i class="material-icons left">remove</i>Remove Loss</button></th>
+	  		</tr>
+			<tr>
+				<th><h4>Players:<br><span id="left_players"> N/A</h4></span></th>
+				<th><h4>Players:<br><span id="right_players"> N/A</h4></span></th>
+	  		</tr>
+			<tr>
+				<th colspan="100%" class="center-align"><h4>Team Settings</h4><i>To change image, go to assets in the upper right hand corner.</i></th>
+			</tr>
+			<tr>
+				<th><button class="btn waves-effect waves-light btn-large" onclick="changeName('left')"><i class="material-icons left">create</i>Change Name</button></th>
+				<th><button class="btn waves-effect waves-light btn-large" onclick="changeName('right')"><i class="material-icons left">create</i>Change Name</button></th>
+			</tr>
+			<tr>
+				<th><input type="color" onchange="handleColor(this, 'left')" id="left_team_color" value="#041E42"> Team Color for Scoreboard</th>
+				<th><input type="color" onchange="handleColor(this, 'right')" id="right_team_color" value="#FFC72C"> Team Color for Scoreboard</th>
+			</tr>
+			<tr>
+				<th>
+					<p>Team Name</p>
+					<div class="switch"><label>Black<input type="checkbox" onclick='textColorChange(this, "left");' id="left_team_name_color"><span class="lever"></span>White</label></div>
+				</th>
+				<th>
+					<p>Team Name</p>
+					<div class="switch"><label>Black<input type="checkbox" onclick='textColorChange(this, "right");' id="right_team_name_color"><span class="lever"></span>White</label></div>
+				</th>
+			</tr>
+			<tr>
+				<th>
+					<p>Score Digit and Player List</p>
+					<div class="switch"><label>Black<input type="checkbox" onclick='digitColorChange(this, "left");' id="left_team_digit_color"><span class="lever"></span>White</label></div>
+				</th>
+				<th>
+					<p>Score Digit and Player List</p>
+					<div class="switch"><label>Black<input type="checkbox" onclick='digitColorChange(this, "right");' id="right_team_digit_color"><span class="lever"></span>White</label></div>
+				</th>
+			</tr>
+	  	</table>
+	  	<div class="row button_row">
+			<div class="col s12">
+				<ul class="left">
+					<li>
+						<button class="btn waves-effect waves-light btn-large" onclick="addGame()"><i class="material-icons left">add</i>Add Game</button> <button class="btn waves-effect waves-light btn-large red" onclick="removeGame()"><i class="material-icons left">remove</i>Remove Game</button><div class="switch"><h4>Game Settings</h4><label>Best of 3 (5 Game Max)<input type="checkbox" onclick='handleChange(this);' id="best_of_select"><span class="lever"></span>Best of 5 (7 Game Max)</label></div>
+					</li>
+				</ul>
+				<ul class="right">
+					<li><button class="btn waves-effect waves-light red" onclick="resetStats()"><i class="material-icons left">delete</i>Reset Everything</button></li>
+					<br>
+					<li><button class="btn waves-effect waves-light red" onclick="resetInGame()"><i class="material-icons left">delete</i>Reset In Game Stats</button></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<script src="rl-home.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>

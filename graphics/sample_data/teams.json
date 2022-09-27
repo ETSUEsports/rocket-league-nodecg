@@ -1,0 +1,11 @@
+{
+    "name": "ETSU",
+    "players": [],
+    "games_won": 0,
+    "games": 
+        [
+            {"score": 0},
+            {"score": 0},
+            {"score": 0}
+        ]
+}

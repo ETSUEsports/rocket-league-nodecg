@@ -1,0 +1,38 @@
+#player_stats_container{
+    width: 904px;
+    height: 43px;
+    position: absolute;
+    bottom: 10px;
+    font-family: Fyrste;
+    text-transform: lowercase;
+}
+#player_stats_accent_bar{
+    width: 904px;
+    height: 10px;
+    position: absolute;
+    bottom: 0px;
+}
+#player_stats_container.left_team_stats{
+    background-color: rgba(33,48,67,0.8);
+    color: #ffffff;
+}
+#player_stats_accent_bar.left_team_stats{
+    background-color: rgb(24,115,255);
+}
+#player_stats_container.right_team_stats{
+    background-color: rgba(33,48,67,0.8);
+    color: #ffffff;
+}
+#player_stats_accent_bar.right_team_stats{
+    background-color: rgb(244, 141, 46);
+}
+span.player_stats_large_text{
+    font-size: 50px;
+    margin-left: 20px !important;
+    line-height: 40px;
+}
+span.player_stats_small_text{
+    font-size: 25px;
+    padding: 5px 0;
+    margin-left: 0px !important;
+}
