@@ -10,8 +10,10 @@
         <link rel="stylesheet" href="./assets/css/scoreboard.css">
         <link rel="stylesheet" href="./assets/css/player_stats.css">
         <link rel="stylesheet" href="./assets/css/players_list.css">
+        <link rel="stylesheet" href="./assets/css/replay_stats.css">
     </head>
     <body>
+        <img id="transition_img" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" width="1920px" height="1080px">
         <div class="scoreboard_active game_over" id="main_container">
             <div class="text-center" id="score_container">
                 <!-- Start Left Team -->
@@ -169,6 +171,21 @@
             <!-- Start Player Stats Accent Bar -->
             <div id="player_stats_accent_bar" style="visibility: hidden;"></div>
             <!-- End Player Stats Accent Bar -->
+            <!-- Start Replay Stats -->
+            <div id="replay_stats_container" style="visibility: hidden;">
+                <div id="replay_stats_team_container">
+                    <span class="replay_stats_large_text" id="replay_stats_team"></span>
+                </div>
+                <div id="replay_stats_name_container">
+                    <i class="replay_stats_icon_goal"></i>
+                    <span class="icon_text" id="replay_stats_name"></span>
+                </div>
+                <div id="replay_stats_asst_container">
+                    <i class="replay_stats_icon_asst"></i>
+                    <span class="icon_text" id="replay_stats_asst"></span>
+                </div>
+            </div>
+            <!-- End Replay Stats -->
         </div>
         <script>
             window.REPLAY_STATS = {};

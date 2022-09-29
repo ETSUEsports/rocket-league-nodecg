@@ -1,0 +1,15 @@
+{
+    "event_name": "Demolish",
+    "main_target": {
+        "id": "Sinister (new settings)_1",
+        "name": "Sinister (new settings)",
+        "team_num": 0
+    },
+    "match_guid": "C1C529C211ED4035AC935A9EFF03A4CF",
+    "secondary_target": {
+        "id": "Iceman_7",
+        "name": "Iceman",
+        "team_num": 1
+    },
+    "type": "Demolition"
+}

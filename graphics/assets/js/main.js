@@ -7,6 +7,8 @@ $(() => {
     const game_max = nodecg.Replicant('game_max', {defaultValue: 3});
     const left_team_score_card = nodecg.Replicant('assets:left_team_score_card');
     const right_team_score_card = nodecg.Replicant('assets:right_team_score_card');
+    const replay_stats = nodecg.Replicant('replay_stats');
+
     nodecg.readReplicant('left_team_score_card', value => {
         if (typeof value !== 'undefined'){
             const url = value[0].url;
@@ -41,10 +43,10 @@ $(() => {
                 right_team_names.push(players[p].name);
             }
         }
-        if(focused_player){
+        if(focused_player && !game_data['isReplay']){
             $("#player_stats_container").css('visibility', 'visible');
             $("#player_stats_accent_bar").css('visibility', 'visible');
-            $("#player_stats_name").text(focused_player.name);
+            $("#player_stats_name").text(truncateString(focused_player.name, 14));
             $("#player_stats_score").text(focused_player.score);
             $("#player_stats_goals").text(focused_player.goals);
             $("#player_stats_shots").text(focused_player.shots);
@@ -95,32 +97,16 @@ $(() => {
         cg_right_team.value.player_names = right_team_names;
         cg_left_team.value.player_data = left_team;
         cg_right_team.value.player_data = right_team;
-        if(game_data['isReplay'] && !game_data['hasWinner']){
-            $("#main_container").css('visibility', 'hidden');
-            $("#player_stats_container").css('visibility', 'hidden');
-            $("#player_stats_accent_bar").css('visibility', 'hidden');
-            $("#replay_stats_container").css('visibility', 'visible');
-            if(REPLAY_STATS.scorer.teamnum == 0){
-                $("#replay_stats_team").text(cg_left_team.value.name.toLowerCase());
-            }else{
-                $("#replay_stats_team").text(cg_right_team.value.name.toLowerCase());
-            }
-            $("#replay_stats_name").text(REPLAY_STATS.scorer.name);
-            if(REPLAY_STATS.assister.name){
-                $("#replay_stats_asst_container").css('visibility', 'visible');
-                $("#replay_stats_asst").text(REPLAY_STATS.assister.name);
-            }else{
-                $("#replay_stats_asst_container").css('visibility', 'hidden');
-            }
-        }else{
-            $("#main_container").css('visibility', 'visible');
-            $("#replay_stats_container").css('visibility', 'hidden');
-            $("#replay_stats_asst_container").css('visibility', 'hidden');
-        }
+
+
         if(game_data['isOT']){
             overtime.value = true;
         }else{
             overtime.value = false;
+        }
+        if(game_data['hasWinner']){
+            $("#left_players_container").css('visibility', 'hidden');
+            $("#right_players_container").css('visibility', 'hidden');
         }
     });
 
@@ -140,6 +126,23 @@ $(() => {
             document.getElementsByClassName('right_score_img')[0].style.backgroundImage=`url(${url})`;
         }
     })
+
+    replay_stats.on('change', (newVal) => {
+        if(typeof newVal !== "undefined"){
+            if(newVal.scorer.teamnum == 0){
+                $("#replay_stats_team").text(`${cg_left_team.value.name.toLowerCase()} Goal`);
+            }else{
+                $("#replay_stats_team").text(`${cg_right_team.value.name.toLowerCase()} Goal`);
+            }
+            $("#replay_stats_name").text(truncateString(newVal.scorer.name, 12));
+            if(newVal.assister.name){
+                $("#replay_stats_asst").text(truncateString(newVal.assister.name), 18);
+            }else{
+                $("#replay_stats_asst_container").css('visibility', 'hidden');
+            }
+        }
+    })
+
     game_max.on('change', (newVal) => {
         if(newVal == 3){
             $("#left_win_4").addClass('bo3');
@@ -151,6 +154,7 @@ $(() => {
             $("#best_of_count").text(7);
         }
     })
+
     cg_left_team.on('change', (newVal) => {
         $("#left_team_score").text(newVal.score);
         $("#left_team_name").text(newVal.name.toLowerCase());
@@ -206,11 +210,10 @@ $(() => {
         const player_data = newVal.player_data;
         for (const p in player_names) {
             const player_number = Number(p)+1;
-            $(`#team_0_player_${player_number}_name`).text(player_names[p]);
+            $(`#team_0_player_${player_number}_name`).text(truncateString(player_names[p], 18));
             $(`#team_0_player_${player_number}_boost`).text(player_data[p].boost);
             $(`#team_0_player_${player_number}_boost_bar`).width(`${player_data[p].boost}%`);
         } 
-        
     })
     cg_right_team.on('change', (newVal) => {
         $("#right_team_score").text(newVal.score);
@@ -266,7 +269,7 @@ $(() => {
         const player_data = newVal.player_data;
         for (const p in player_names) {
             const player_number = Number(p)+1;
-            $(`#team_1_player_${player_number}_name`).text(player_names[p]);
+            $(`#team_1_player_${player_number}_name`).text(truncateString(player_names[p], 18));
             $(`#team_1_player_${player_number}_boost`).text(player_data[p].boost);
             $(`#team_1_player_${player_number}_boost_bar`).width(`${player_data[p].boost}%`);
         } 
@@ -280,10 +283,17 @@ $(() => {
     })
 });
 
-
 function secondsToMS(d) {
     d = Number(d);
     var m = Math.floor(d % 3600 / 60);
     var s = Math.floor(d % 3600 % 60);
     return m + ":" + ('0' + s).slice(-2);
+}
+
+function truncateString(string, limit) {
+    if (string.length > limit) {
+      return string.substring(0, limit) + "..."
+    } else {
+      return string
+    }
 }

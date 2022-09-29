@@ -21,8 +21,12 @@
     position: relative;
 }
 .replay_active{
-    background-image: url("../img/Replay.png");
-    background-repeat: no-repeat;
+    background-image: url("../img/Replay.png") !important;
+    background-repeat: no-repeat !important;
+}
+#transition_img{
+    position: absolute;
+    z-index: 1000;
 }
 .scoreboard_active{
     /*background-image: url("../img/replay_overlay.png");*/

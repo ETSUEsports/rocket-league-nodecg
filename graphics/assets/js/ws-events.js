@@ -14,6 +14,41 @@ $(() => {
         window.REPLAY_STATS = d;
         replay_stats.value = d;
         game_state.value = "Goal Scored";
+        const game_time = 2500;
+        $("#player_stats_container").css('visibility', 'hidden');
+        $("#player_stats_accent_bar").css('visibility', 'hidden');
+        setTimeout(function() {
+            if(d.scorer.teamnum == 0){
+                $("#transition_img").attr('src', './assets/img/stinger_blue.gif');
+            }else{
+                $("#transition_img").attr('src', './assets/img/stinger_yellow.gif');
+            }  
+            const gif_time = 1650;
+            const elements_time = 1000;
+            setTimeout(function() {
+
+                if(!d.assister.name){
+                    $("#replay_stats_asst_container").css('visibility', 'hidden');
+                }else{
+                    $("#replay_stats_asst_container").css('visibility', 'visible');
+                }
+                $("#replay_stats_container").css('visibility', 'visible');
+                $("#left_players_container").css('visibility', 'hidden');
+                $("#right_players_container").css('visibility', 'hidden');
+                $("#score_container").css('visibility', 'hidden');
+                $("#main_container").addClass('replay_active');
+            }, elements_time);
+
+            setTimeout(function() {
+                $("#transition_img").attr('src', 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==');
+                $("#replay_stats_container").css('visibility', 'visible');
+                $("#replay_stats_asst_container").css('visibility', 'visible');
+                $("#left_players_container").css('visibility', 'hidden');
+                $("#right_players_container").css('visibility', 'hidden');
+                $("#score_container").css('visibility', 'hidden');
+                $("#main_container").addClass('replay_active');
+            }, gif_time);
+        }, game_time);
     });
     WsSubscribers.subscribe("game", "match_created", (d) => { //On Match Created event, update HTML Elements
         console.log(`Event: game:match_created`);
@@ -31,6 +66,13 @@ $(() => {
     WsSubscribers.subscribe("game", "pre_countdown_begin", (d) => { //On Pre Countdown event, update HTML Elements
         console.log(`Event: game:pre_countdown_begin`);
         game_state.value = "Pre Countdown Start";
+        $("#main_container").css('visibility', 'visible');
+        $("#replay_stats_container").css('visibility', 'hidden');
+        $("#replay_stats_asst_container").css('visibility', 'hidden');
+        $("#main_container").removeClass('replay_active');
+        $("#left_players_container").css('visibility', 'visible');
+        $("#right_players_container").css('visibility', 'visible');
+        $("#score_container").css('visibility', 'visible');
     });
     WsSubscribers.subscribe("game", "post_countdown_begin", (d) => { //On Post Countdown event, update HTML Elements
         console.log(`Event: game:post_countdown_begin`);
@@ -69,3 +111,11 @@ $(() => {
         game_state.value = "Match Destroyed";
     });
 });
+
+function truncateString(string, limit) {
+    if (string.length > limit) {
+      return string.substring(0, limit) + "..."
+    } else {
+      return string
+    }
+}

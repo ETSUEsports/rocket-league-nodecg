@@ -1,0 +1,15 @@
+{
+    "event_name": "Save",
+    "main_target": {
+        "id": "Scout_6",
+        "name": "Scout",
+        "team_num": 1
+    },
+    "match_guid": "C1C529C211ED4035AC935A9EFF03A4CF",
+    "secondary_target": {
+        "id": "",
+        "name": "",
+        "team_num": -1
+    },
+    "type": "Save"
+}
