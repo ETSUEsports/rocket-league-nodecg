@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="./assets/css/player_stats.css">
         <link rel="stylesheet" href="./assets/css/players_list.css">
         <link rel="stylesheet" href="./assets/css/replay_stats.css">
+        <link rel="stylesheet" href="./assets/css/boost_circle.css">
     </head>
     <body>
         <img id="transition_img" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" width="1920px" height="1080px">
@@ -168,6 +169,11 @@
                 <span class="player_stats_small_text">Saves</span>
             </div>
             <!-- End Player Stats -->
+            <!-- Start Boost Circle -->
+            <div id="boost_circle">
+                <div id="gauge3" class="gauge-container three blue"></div>
+            </div>
+            <!-- End Boost Circle-->
             <!-- Start Player Stats Accent Bar -->
             <div id="player_stats_accent_bar" style="visibility: hidden;"></div>
             <!-- End Player Stats Accent Bar -->
@@ -190,6 +196,9 @@
         <script>
             window.REPLAY_STATS = {};
         </script>
+        <!-- Boost Circle -->
+        <script src="./assets/js/gauge.min.js"></script>
+        <script src="./assets/js/boost-circle.js"></script>
         <!-- Bootstrap JS -->
         <script src="./assets/js/bootstrap.bundle.min.js"></script>
         <!-- jQuery Dependency -->

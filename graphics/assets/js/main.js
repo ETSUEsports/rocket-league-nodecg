@@ -46,13 +46,18 @@ $(() => {
         if(focused_player && !game_data['isReplay']){
             $("#player_stats_container").css('visibility', 'visible');
             $("#player_stats_accent_bar").css('visibility', 'visible');
+            $("#boost_circle").css('visibility', 'visible');
             $("#player_stats_name").text(truncateString(focused_player.name, 14));
             $("#player_stats_score").text(focused_player.score);
             $("#player_stats_goals").text(focused_player.goals);
             $("#player_stats_shots").text(focused_player.shots);
             $("#player_stats_asst").text(focused_player.assists);
             $("#player_stats_saves").text(focused_player.saves);
+            boostGauge.setValueAnimated(focused_player.boost);
+
             if(focused_player.team == 0){
+                $(`#gauge3`).addClass('blue');
+                $(`#gauge3`).removeClass('orange');
                 for(var i=0; i<left_team.length; i++){
                     if(left_team[i].id==focused_player.id){
                         $(`#team_0_player_${i+1}`).addClass('player_focused_left');
@@ -67,6 +72,8 @@ $(() => {
                 $("#player_stats_container").removeClass('right_team_stats');
                 $("#player_stats_accent_bar").removeClass('right_team_stats');
             }else{
+                $(`#gauge3`).addClass('orange');
+                $(`#gauge3`).removeClass('blue');
                 for(var i=0; i<right_team.length; i++){
                     if(right_team[i].id==focused_player.id){
                         $(`#team_1_player_${i+1}`).addClass('player_focused_right');
@@ -84,6 +91,7 @@ $(() => {
         }else{
             $("#player_stats_container").css('visibility', 'hidden');
             $("#player_stats_accent_bar").css('visibility', 'hidden');
+            $("#boost_circle").css('visibility', 'hidden');
         }
         //Convert Time from Seconds to MM:SS
         const time = secondsToMS(game_data['time_seconds']);

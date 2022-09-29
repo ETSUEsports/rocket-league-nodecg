@@ -1,0 +1,59 @@
+#boost_circle{
+    position: absolute;
+    top: 750px;
+    left: 1600px;
+}
+
+.gauge-container {
+    width: 250px;
+    height: 250px;
+    display: block;
+    float: left;
+    padding: 10px;
+    background-color: rgba(33,48,67,0.8);
+    margin: 7px;
+    border-radius: 50%;
+    position: relative;
+}
+
+.gauge-container>.label {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.5);
+    font-family: monospace;
+    font-size: 0.8em;
+    padding: 5px 10px;
+}
+
+.gauge-container>.gauge .dial {
+    stroke: #334455;
+    stroke-width: 2;
+    fill: rgba(0, 0, 0, 0);
+}
+
+.gauge-container>.gauge .value {
+    stroke: #2fe3ff;
+    stroke-width: 2;
+    fill: rgba(0, 0, 0, 0);
+}
+
+.gauge-container.three>.gauge .dial {
+    stroke: #334455;
+    stroke-width: 5;
+}
+
+.gauge-container.three.blue>.gauge .value {
+    stroke: var(--rl-primary-blue);
+    stroke-width: 8;
+}
+.gauge-container.three.orange>.gauge .value {
+    stroke: var(--rl-primary-orange);
+    stroke-width: 8;
+}
+.gauge-container.three>.gauge .value-text {
+    fill: #ffffff;
+    font-family: Fyrste;
+    font-size: 50px;
+}

@@ -35,6 +35,7 @@ $(() => {
                 $("#replay_stats_container").css('visibility', 'visible');
                 $("#left_players_container").css('visibility', 'hidden');
                 $("#right_players_container").css('visibility', 'hidden');
+                $("#boost_circle").css('visibility', 'hidden');
                 $("#score_container").css('visibility', 'hidden');
                 $("#main_container").addClass('replay_active');
             }, elements_time);
@@ -45,6 +46,7 @@ $(() => {
                 $("#replay_stats_asst_container").css('visibility', 'visible');
                 $("#left_players_container").css('visibility', 'hidden');
                 $("#right_players_container").css('visibility', 'hidden');
+                $("#boost_circle").css('visibility', 'hidden');
                 $("#score_container").css('visibility', 'hidden');
                 $("#main_container").addClass('replay_active');
             }, gif_time);
@@ -58,6 +60,7 @@ $(() => {
         $("#game_clock").removeClass('game_over');
         $("#left_players_container").removeClass('game_over');
         $("#right_players_container").removeClass('game_over');
+        $("#boost_circle").css('visibility', 'hidden');
     });
     WsSubscribers.subscribe("game", "initialized", (d) => { //On Initialized event, update HTML Elements
         console.log(`Event: game:initialized`);
@@ -73,6 +76,7 @@ $(() => {
         $("#left_players_container").css('visibility', 'visible');
         $("#right_players_container").css('visibility', 'visible');
         $("#score_container").css('visibility', 'visible');
+        $("#boost_circle").css('visibility', 'hidden');
     });
     WsSubscribers.subscribe("game", "post_countdown_begin", (d) => { //On Post Countdown event, update HTML Elements
         console.log(`Event: game:post_countdown_begin`);
