@@ -4,7 +4,7 @@ module.exports = function (nodecg) {
 	const current_game = nodecg.Replicant('current_game');
 	const left_team = nodecg.Replicant('left_team');
 	const right_team = nodecg.Replicant('right_team');
-    const router = nodecg.Router();
+    	const router = nodecg.Router();
 	const game_max = nodecg.Replicant('game_max');
 
     router.post('/team/:team/score/add', (req, res, error) => {
