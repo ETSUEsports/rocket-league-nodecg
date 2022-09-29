@@ -1,16 +1,28 @@
 #player_stats_container{
-    width: 904px;
-    height: 43px;
+    width: 550px;
+    height: 85px;
     position: absolute;
-    bottom: 10px;
+    bottom: 83px;
+    left: 1185px;
     font-family: Fyrste;
     text-transform: lowercase;
 }
-#player_stats_accent_bar{
-    width: 904px;
-    height: 10px;
+#player_stats_name_bar{
+    width: 500px;
+    height: 30px;
     position: absolute;
-    bottom: 0px;
+    bottom: 185px;
+    left: 1185px;
+    font-family: Fyrste;
+    color: #ffffff;
+    text-transform: lowercase;
+}
+#player_stats_accent_bar{
+    width: 550px;
+    height: 30px;
+    position: absolute;
+    bottom: 185px;
+    left: 1185px;
 }
 #player_stats_container.left_team_stats{
     background-color: rgba(33,48,67,0.8);
@@ -26,13 +38,32 @@
 #player_stats_accent_bar.right_team_stats{
     background-color: rgb(244, 141, 46);
 }
+#player_stats_name_bar.right_team_stats{
+    background-color: rgba(33,48,67,0.8);
+    color: #ffffff;
+}
+#player_stats_name_bar.right_team_stats{
+    background-color: rgb(244, 141, 46);
+}
+span.player_stats_name_text{
+    font-size: 40px;
+    margin-left: 20px !important;
+    margin-top: -5px;
+}
 span.player_stats_large_text{
     font-size: 50px;
     margin-left: 20px !important;
-    line-height: 40px;
+    line-height: 45px;
+    margin-bottom: -5px;
 }
 span.player_stats_small_text{
     font-size: 25px;
-    padding: 5px 0;
-    margin-left: 0px !important;
+    margin-left: 20px !important;
+    margin-top: -5px;
+}
+.clear{
+    clear:both;
+}
+.stat{
+    display: inline-block;
 }
