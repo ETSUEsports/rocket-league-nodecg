@@ -16,13 +16,15 @@
     font-family: Fyrste;
     color: #ffffff;
     text-transform: lowercase;
+    z-index: 1;
 }
 #player_stats_accent_bar{
     width: 550px;
-    height: 30px;
+    height: 40px;
     position: absolute;
-    bottom: 185px;
+    bottom: 166px;
     left: 1185px;
+    z-index: 1;
 }
 #player_stats_container.left_team_stats{
     background-color: rgba(33,48,67,0.8);
@@ -48,7 +50,11 @@
 span.player_stats_name_text{
     font-size: 40px;
     margin-left: 20px !important;
-    margin-top: -5px;
+    z-index: 99;
+    font-family: Fyrste;
+    color: #ffffff;
+    text-transform: lowercase;
+    line-height: 35px;
 }
 span.player_stats_large_text{
     font-size: 50px;
