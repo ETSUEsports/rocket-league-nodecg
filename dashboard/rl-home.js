@@ -10,7 +10,7 @@ const left_team = nodecg.Replicant('left_team', {defaultValue: {
     "games_won": 0,
     "games_lost": 0,
     "score": 0,
-    "color": "#041E42",
+    "color": "#1873FF",
     "name_color": true,
     "digit_color": true
 }});
@@ -21,9 +21,9 @@ const right_team = nodecg.Replicant('right_team', {defaultValue: {
     "games_won": 0,
     "games_lost": 0,
     "score": 0,
-    "color": "#FFC72C",
+    "color": "#F48D2E",
     "name_color": true,
-    "digit_color": false
+    "digit_color": true
 }});
 const left_team_color = document.querySelector('#left_team_color');
 const right_team_color = document.querySelector('#right_team_color');
@@ -57,7 +57,7 @@ function resetStats(){
             "games_won": 0,
             "games_lost": 0,
             "score": 0,
-            "color": "#041E42",
+            "color": "#1873FF",
             "name_color": true, //true = white
             "digit_color": true //true = white
         };
@@ -68,9 +68,9 @@ function resetStats(){
             "games_won": 0,
             "games_lost": 0,
             "score": 0,
-            "color": "#FFC72C",
+            "color": "#F48D2E",
             "name_color": true, //true = white
-            "digit_color": false //true = white
+            "digit_color": true //true = white
         };
         games_count.value = 0;
         game_clock.value = "0:00";
