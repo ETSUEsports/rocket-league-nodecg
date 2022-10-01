@@ -46,7 +46,6 @@ $(() => {
         if(focused_player && !game_data['isReplay']){
             $("#player_stats_container").css('visibility', 'visible');
             $("#player_stats_accent_bar").css('visibility', 'visible');
-            $("#player_stats_name_bar").css('visibility', 'visible');
             $("#boost_circle").css('visibility', 'visible');
             $("#player_stats_name").text(truncateString(focused_player.name, 14));
             $("#player_stats_score").text(focused_player.score);
@@ -70,10 +69,8 @@ $(() => {
                 }
                 $("#player_stats_container").addClass('left_team_stats');
                 $("#player_stats_accent_bar").addClass('left_team_stats');
-                $("#player_stats_name_bar").addClass('left_team_stats');
                 $("#player_stats_container").removeClass('right_team_stats');
                 $("#player_stats_accent_bar").removeClass('right_team_stats');
-                $("#player_stats_name_bar").removeClass('right_team_stats');
             }else{
                 $(`#gauge3`).addClass('orange');
                 $(`#gauge3`).removeClass('blue');
@@ -88,16 +85,13 @@ $(() => {
                 }
                 $("#player_stats_container").removeClass('left_team_stats');
                 $("#player_stats_accent_bar").removeClass('left_team_stats');
-                $("#player_stats_name_bar").removeClass('left_team_stats');
                 $("#player_stats_container").addClass('right_team_stats');
                 $("#player_stats_accent_bar").addClass('right_team_stats');
-                $("#player_stats_name_bar").addClass('right_team_stats');
             }
         }else{
             $("#player_stats_container").css('visibility', 'hidden');
             $("#player_stats_accent_bar").css('visibility', 'hidden');
             $("#boost_circle").css('visibility', 'hidden');
-            $("#player_stats_name_bar").css('visibility', 'hidden');
         }
         //Convert Time from Seconds to MM:SS
         const time = secondsToMS(game_data['time_seconds']);

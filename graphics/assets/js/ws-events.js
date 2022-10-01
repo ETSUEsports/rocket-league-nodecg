@@ -18,7 +18,6 @@ $(() => {
         $("#player_stats_container").css('visibility', 'hidden');
         $("#player_stats_accent_bar").css('visibility', 'hidden');
         $("#boost_circle").css('visibility', 'hidden');
-        $("#player_stats_name_bar").css('visibility', 'hidden');
         setTimeout(function() {
             if(d.scorer.teamnum == 0){
                 $("#transition_img").attr('src', './assets/img/stinger_blue.gif');

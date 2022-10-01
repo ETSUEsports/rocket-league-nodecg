@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 549 124">
+                <mask id="stat_box_mask">
+                    <rect width="549" height="124" fill="white"/>
+                    <path d="M549,0V124h-50.28c-45.05-18.74-76.72-63.17-76.72-115,0-3.03,.11-6.03,.32-9h126.68Z" fill="black"/>
+                </mask>
+            </svg>
