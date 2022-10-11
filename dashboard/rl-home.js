@@ -207,7 +207,7 @@ left_team.on('change', (newVal) => {
     left_team_name_color.setAttribute("checked", newVal.name_color);
     left_team_digit_color.setAttribute("checked", newVal.digit_color);
 	left_wins.innerHTML = newVal.games_won;
-    left_lost.innerHTML = newVal.games_lost;
+    //left_lost.innerHTML = newVal.games_lost;
     left_team_players.innerHTML = newVal.player_names.join(", ");
 })
 right_team.on('change', (newVal) => {
@@ -216,7 +216,7 @@ right_team.on('change', (newVal) => {
     right_team_name_color.setAttribute("checked", newVal.name_color);
     right_team_digit_color.setAttribute("checked", newVal.digit_color);
     right_wins.innerHTML = newVal.games_won;
-    right_lost.innerHTML = newVal.games_lost;
+    //right_lost.innerHTML = newVal.games_lost;
     right_team_players.innerHTML = newVal.player_names.join(", ");
 })
 game_clock.on('change', (newVal) => {
