@@ -53,6 +53,11 @@
         "name": "right_team_score_card",
         "title": "Right Team Score Card (Right Aligned - 282px x 86px)",
         "allowedTypes": ["jpg", "jpeg", "gif", "png"]
+      },
+      {
+        "name": "ads",
+        "title": "Ads (270px x 75px)",
+        "allowedTypes": ["png"]
       }
     ]
   },

@@ -1,0 +1,39 @@
+#ads_container{
+    background-image: url("../img/RL_ADs.png");
+    width: 1920px;
+    height: 1080px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+#ads_loop{
+    width: 270px;
+    height: 75px;
+    overflow: hidden;
+    position: absolute;
+    bottom: 60px;
+    left: 165px;
+}
+
+img.ads {
+    width: 270px;
+    height: 75px;
+}
+
+#ads_list{
+    position: relative;
+    list-style: none;
+    height: 100%;
+    width: 10000%;
+    padding: 0;
+    margin: 0;
+    /*transition: all 750ms ease;*/
+    left: 0;
+}
+
+.ads_item {
+    position: relative;
+    height: 100%;
+    float: left;
+}

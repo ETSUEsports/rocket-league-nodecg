@@ -17,6 +17,7 @@ $(() => {
         const game_time = 2500;
         $("#player_stats_container").css('visibility', 'hidden');
         $("#player_stats_accent_bar").css('visibility', 'hidden');
+        $("#ads_container").css('visibility', 'hidden');
         $("#boost_circle").css('visibility', 'hidden');
         setTimeout(function() {
             if(d.scorer.teamnum == 0){
@@ -77,6 +78,7 @@ $(() => {
         $("#left_players_container").css('visibility', 'visible');
         $("#right_players_container").css('visibility', 'visible');
         $("#score_container").css('visibility', 'visible');
+        $("#ads_container").css('visibility', 'visible');
         $("#boost_circle").css('visibility', 'hidden');
     });
     WsSubscribers.subscribe("game", "post_countdown_begin", (d) => { //On Post Countdown event, update HTML Elements
