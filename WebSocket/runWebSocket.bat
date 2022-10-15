@@ -1,2 +1,2 @@
 echo "Running WebSocket"
-node ws-relay.js --port=49322 --delay=0 --rocketLeagueHost="127.0.0.1:49122"
+node ws-relay.js --port=49322 --delay=0 --rocketLeagueHost="151.141.76.105:49122"
