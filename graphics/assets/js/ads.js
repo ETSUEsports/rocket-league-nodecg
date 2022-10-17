@@ -1,4 +1,5 @@
 const ads = nodecg.Replicant('assets:ads');
+const ad_settings = nodecg.Replicant('ad_settings', {defaultValue: {"visible": true}});
 
 ads.on('change', (value) => {
     setupAds(value);
@@ -6,6 +7,22 @@ ads.on('change', (value) => {
 
 nodecg.readReplicant('assets:ads', value => {
     setupAds(value);
+});
+
+ad_settings.on('change', (value) => {
+    if(value.visible){
+        $("#ads_container").removeClass("ads_hidden");
+    }else{
+        $("#ads_container").addClass("ads_hidden");
+    }
+})
+
+nodecg.readReplicant('ad_settings', value => {
+    if(value.visible){
+        $("#ads_container").removeClass("ads_hidden");
+    }else{
+        $("#ads_container").addClass("ads_hidden");
+    }
 });
 
 

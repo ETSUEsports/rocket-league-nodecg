@@ -1,4 +1,5 @@
 const current_game = nodecg.Replicant('current_game', {defaultValue: 0});
+const ad_settings = nodecg.Replicant('ad_settings', {defaultValue: {"visible": true}});
 const overtime = nodecg.Replicant('overtime');
 const game_max = nodecg.Replicant('game_max', {defaultValue: 3});
 const game_state = nodecg.Replicant('game_state', {defaultValue: "unknown"});
@@ -254,6 +255,13 @@ function handleColor(cb, team) {
         right_team.value.color = cb.value;
     }
 }
+function adToggle(cb){
+    if(cb.checked){
+        ad_settings.value.visible = true;
+    }else{
+        ad_settings.value.visible = false;
+    } 
+}
 function textColorChange(cb, team){
     if(team == "left"){
         if(cb.checked){
@@ -298,5 +306,20 @@ nodecg.readReplicant('game_max', value => {
     }else{
         game_max_count.innerHTML = "7";
         best_of_select.checked = true;
+    }
+});
+ad_settings.on('change', (value) => {
+    if(value.visible){
+        ads_show.checked = true;
+    }else{
+        ads_show.checked = false;
+    }
+})
+
+nodecg.readReplicant('ad_settings', value => {
+    if(value.visible){
+        ads_show.checked = true;
+    }else{
+        ads_show.checked = false;
     }
 });

@@ -7,6 +7,10 @@
     left: 0px;
 }
 
+.ads_hidden {
+    visibility: hidden !important;
+}
+
 #ads_loop{
     width: 270px;
     height: 75px;
