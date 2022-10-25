@@ -89,6 +89,10 @@ $(() => {
                 $("#player_stats_accent_bar").addClass('right_team_stats');
             }
         }else{
+            for(var i=0; i<right_team.length; i++){
+                $(`#team_0_player_${i+1}`).removeClass('player_focused_left');
+                $(`#team_1_player_${i+1}`).removeClass('player_focused_right');
+            }
             $("#player_stats_container").css('visibility', 'hidden');
             $("#player_stats_accent_bar").css('visibility', 'hidden');
             $("#boost_circle").css('visibility', 'hidden');
@@ -113,8 +117,12 @@ $(() => {
             overtime.value = false;
         }
         if(game_data['hasWinner']){
+            $("#player_stats_container").css('visibility', 'hidden');
+            $("#player_stats_accent_bar").css('visibility', 'hidden');
+            $("#boost_circle").css('visibility', 'hidden');
             $("#left_players_container").css('visibility', 'hidden');
             $("#right_players_container").css('visibility', 'hidden');
+            $("#transition_img").attr('src', 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==');
         }
     });
 

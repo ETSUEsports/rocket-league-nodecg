@@ -59,7 +59,6 @@ var responsiveSlider = function () {
 function setupAds(value){
     try{
         if (typeof value !== 'undefined') {
-            console.log(value);
             $("#ads_list").html("");
             value.forEach(ad => {
                 console.log(`Adding ad ${ad.base}`);

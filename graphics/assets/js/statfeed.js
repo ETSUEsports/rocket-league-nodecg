@@ -1,5 +1,5 @@
 $(() => {
-    const statfeed = nodecg.Replicant('statfeed');
+    const statfeed = nodecg.Replicant('statfeed', {defaultValue: []});
     WsSubscribers.subscribe("game", "statfeed_event", (d) => { //On Replay Start event, update HTML Elements
         console.log(`Event: game:statfeed_event`);
         if(d.event_name == "Shot"){
@@ -38,3 +38,24 @@ $(() => {
         }
     });
 });
+
+function showActivity(team_id, activity_type, slot, player_id, victim_team_id, victim_player_id) {
+    const target = `team_${team_id}_player_${player_id}_events_icon_${slot}`;
+    switch (activity_type){
+        case "SHOT":
+            $(target).removeClass();
+            $(target).addClass("icon_shot");
+        case "SAVE":
+            $(target).removeClass();
+            $(target).addClass("icon_save");
+        case "DEMO":
+            $(target).removeClass();
+            $(target).addClass("icon_demo");
+            const victim = `team_${victim_team_id}_player_${victim_player_id}_events_icon_${slot}`;
+    }
+
+}
+
+function addActivity(team_id, activity_type, player_id, victim_team_id, victim_player_id){
+    statfeed.push({"team_id": team_id, "activity_type": activity_type, "player_id": player_id, "victim_team_id": victim_team_id, "victim_player_id": victim_player_id});
+}
