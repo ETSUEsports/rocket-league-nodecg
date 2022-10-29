@@ -1,243 +1,263 @@
 <!doctype html>
 <html translate="no">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- bootstrap -->
-        <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
-        <!-- main styles -->
-        <link rel="stylesheet" href="./assets/css/main.css">
-        <link rel="stylesheet" href="./assets/css/scoreboard.css">
-        <link rel="stylesheet" href="./assets/css/player_stats.css">
-        <link rel="stylesheet" href="./assets/css/players_list.css">
-        <link rel="stylesheet" href="./assets/css/replay_stats.css">
-        <link rel="stylesheet" href="./assets/css/boost_circle.css">
-        <link rel="stylesheet" href="./assets/css/ads.css">
-    </head>
-    <body>
-        <img id="transition_img" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" width="1920px" height="1080px">
-        <div class="scoreboard_active" id="main_container">
-            <div class="text-center" id="score_container">
-                <!-- Start Left Team -->
-                <div class="team_card" id="blue_team">
-                    <div class="left_score_img">
-                    </div>
-                    <div class="left_score_card">
-                        <h1 id="left_team_score" class="white_text" style="font-size: 5em;"></h1>
-                    </div>
-                    <div class="left_team_name">
-                        <h1 id="left_team_name" class="white_text" style="font-size: 5em;"></h1>
-                    </div>
-                    <div class="left_team_wins">
-                        <div id="left_win_1" class="win_light win_hide"></div>
-                        <div id="left_win_2" class="win_light win_hide"></div>
-                        <div id="left_win_3" class="win_light win_hide"></div>
-                        <div id="left_win_4" class="win_light win_hide"></div>
-                    </div>
-                    <div class="left_player_list">
-                        <b id="left_player_list" class="white_text"></b>
-                    </div>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <!-- main styles -->
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/scoreboard.css">
+    <link rel="stylesheet" href="./assets/css/player_stats.css">
+    <link rel="stylesheet" href="./assets/css/players_list.css">
+    <link rel="stylesheet" href="./assets/css/replay_stats.css">
+    <link rel="stylesheet" href="./assets/css/boost_circle.css">
+    <link rel="stylesheet" href="./assets/css/ads.css">
+</head>
+
+<body>
+    <img id="transition_img" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+        width="1920px" height="1080px">
+    <div class="scoreboard_active" id="main_container">
+        <div class="text-center" id="score_container">
+            <!-- Start Left Team -->
+            <div class="team_card" id="blue_team">
+                <div class="left_score_img">
                 </div>
-                <!-- End Left Team -->
-                <!-- Start Game Clock -->
-                <div id="game_clock">
-                    <h1 id="time_seconds" style="font-size: 5em;"></h1>
-                    <div id="below_clock">
-                        <b>Game <span id="game_id">...</span></b> - Best of <span id="best_of_count">3</span>
-                    </div>
+                <div class="left_score_card">
+                    <h1 id="left_team_score" class="white_text" style="font-size: 5em;"></h1>
                 </div>
-                <!-- End Game Clock -->
-                <!-- Start Right Team  -->
-                <div class="team_card" id="orange_team">
-                    <div class="right_score_img">
-                    </div>
-                    <div class="right_score_card">
-                        <h1 id="right_team_score" class="black_text" style="font-size: 5em;"></h1>
-                    </div>
-                    <div class="right_team_name">
-                        <h1 id="right_team_name" class="white_text" style="font-size: 5em;"></h1>
-                    </div>
-                    <div class="right_team_wins">
-                        <div id="right_win_1" class="win_light win_hide"></div>
-                        <div id="right_win_2" class="win_light win_hide"></div>
-                        <div id="right_win_3" class="win_light win_hide"></div>
-                        <div id="right_win_4" class="win_light win_hide"></div>
-                    </div>
-                    <div class="right_player_list">
-                        <b id="right_player_list" class="black_text"></b>
-                    </div>
+                <div class="left_team_name">
+                    <h1 id="left_team_name" class="white_text" style="font-size: 5em;"></h1>
                 </div>
-                <!-- End Right Team -->
-            </div>
-            <!-- Start Left Players -->
-            <div id="left_players_container" class="left">
-                <div id="team_0_player_1" class="player_boost_bar top">
-                    <h3 class="left_text" id="team_0_player_1_name">Player 1</h3>
-                    <div class="boost_number boost_top_left">
-                        <h4 class="boost_tag text-center" id="team_0_player_1_boost">100</h4>
-                    </div>
-                    <div class="boost_bar">
-                        <div class="boost_bar_fill" id="team_0_player_1_boost_bar"></div>
-                    </div>
+                <div class="left_team_wins">
+                    <div id="left_win_1" class="win_light win_hide"></div>
+                    <div id="left_win_2" class="win_light win_hide"></div>
+                    <div id="left_win_3" class="win_light win_hide"></div>
+                    <div id="left_win_4" class="win_light win_hide"></div>
                 </div>
-                <div id="team_0_player_1_events" class="top">
-                    <i id="team_0_player_1_events_icon_1"></i>
-                    <i id="team_0_player_1_events_icon_2"></i>
-                </div>
-                <div id="team_0_player_2" class="player_boost_bar middle">
-                    <h3 class="left_text" id="team_0_player_2_name">Player 2</h3>
-                    <div class="boost_number boost_middle_left">
-                        <h4 class="boost_tag text-center" id="team_0_player_2_boost">100</h4>
-                    </div>
-                    <div class="boost_bar">
-                        <div class="boost_bar_fill" id="team_0_player_2_boost_bar"></div>
-                    </div>
-                </div>
-                <div id="team_0_player_2_events" class="middle">
-                    <i id="team_0_player_2_events_icon_1"></i>
-                    <i id="team_0_player_2_events_icon_2"></i>
-                </div>
-                <div id="team_0_player_3" class="player_boost_bar bottom">
-                    <h3 class="left_text" id="team_0_player_3_name">Player 3</h3>
-                    <div class="boost_number boost_bottom_left">
-                        <h4 class="boost_tag text-center" id="team_0_player_3_boost">100</h4>
-                    </div>
-                    <div class="boost_bar">
-                        <div class="boost_bar_fill" id="team_0_player_3_boost_bar"></div>
-                    </div>
-                </div>
-                <div id="team_0_player_3_events" class="bottom">
-                    <i id="team_0_player_3_events_icon_1"></i>
-                    <i id="team_0_player_3_events_icon_2"></i>
+                <div class="left_player_list">
+                    <b id="left_player_list" class="white_text"></b>
                 </div>
             </div>
-            <!-- End Left Players -->
-            <!-- Start Right Players -->
-            <div id="right_players_container" class="right">
-                <div id="team_1_player_1" class="player_boost_bar top_right">
-                    <h3 class="right_text" id="team_1_player_1_name">Player 1</h3>
-                    <div class="boost_number">
-                        <h4 class="boost_tag boost_tag_right text-center" id="team_1_player_1_boost">100</h4>
-                    </div>
-                    <div class="boost_bar boost_bar_right">
-                        <div class="boost_bar_fill boost_bar_fill_right" id="team_1_player_1_boost_bar"></div>
-                    </div>
-                </div>
-                <div id="team_1_player_1_events" class="top">
-                    <i id="team_1_player_1_events_icon_1"></i>
-                    <i id="team_1_player_1_events_icon_2"></i>
-                </div>
-                <div id="team_1_player_2" class="player_boost_bar middle_right">
-                    <h3 class="right_text" id="team_1_player_2_name">Player 2</h3>
-                    <div class="boost_number">
-                        <h4 class="boost_tag boost_tag_right text-center" id="team_1_player_2_boost">100</h4>
-                    </div>
-                    <div class="boost_bar boost_bar_right">
-                        <div class="boost_bar_fill boost_bar_fill_right" id="team_1_player_2_boost_bar"></div>
-                    </div>
-                </div>
-                <div id="team_1_player_2_events" class="middle">
-                    <i id="team_1_player_2_events_icon_1"></i>
-                    <i id="team_1_player_2_events_icon_2"></i>
-                </div>
-                <div id="team_1_player_3" class="player_boost_bar bottom_right">
-                    <h3 class="right_text" id="team_1_player_3_name">Player 3</h3>
-                    <div class="boost_number">
-                        <h4 class="boost_tag boost_tag_right text-center" id="team_1_player_3_boost">100</h4>
-                    </div>
-                    <div class="boost_bar boost_bar_right">
-                        <div class="boost_bar_fill boost_bar_fill_right" id="team_1_player_3_boost_bar"></div>
-                    </div>
-                </div>
-                <div id="team_1_player_3_events" class="bottom">
-                    <i id="team_1_player_3_events_icon_1"></i>
-                    <i id="team_1_player_3_events_icon_2"></i>
+            <!-- End Left Team -->
+            <!-- Start Game Clock -->
+            <div id="game_clock">
+                <h1 id="time_seconds" style="font-size: 5em;"></h1>
+                <div id="below_clock">
+                    <b>Game <span id="game_id">...</span></b> - Best of <span id="best_of_count">3</span>
                 </div>
             </div>
-            <!-- End Right Players -->
-            <!-- Start Player Stats -->
-            <div id="player_stats_container" style="visibility: hidden;">
-                <!-- Start Player Stats Accent Bar -->
-                <div id="player_stats_accent_bar" style="visibility: hidden;">
-                    <span class="player_stats_name_text" id="player_stats_name">Player Name</span>
+            <!-- End Game Clock -->
+            <!-- Start Right Team  -->
+            <div class="team_card" id="orange_team">
+                <div class="right_score_img">
                 </div>
-                <!-- End Player Stats Accent Bar -->
-                <div class="container">
-                    <div class="row text-center">
-                      <div class="col-2">
+                <div class="right_score_card">
+                    <h1 id="right_team_score" class="black_text" style="font-size: 5em;"></h1>
+                </div>
+                <div class="right_team_name">
+                    <h1 id="right_team_name" class="white_text" style="font-size: 5em;"></h1>
+                </div>
+                <div class="right_team_wins">
+                    <div id="right_win_1" class="win_light win_hide"></div>
+                    <div id="right_win_2" class="win_light win_hide"></div>
+                    <div id="right_win_3" class="win_light win_hide"></div>
+                    <div id="right_win_4" class="win_light win_hide"></div>
+                </div>
+                <div class="right_player_list">
+                    <b id="right_player_list" class="black_text"></b>
+                </div>
+            </div>
+            <!-- End Right Team -->
+        </div>
+        <!-- Start Left Players -->
+        <div id="left_players_container" class="left">
+            <div data-player="player_1" id="team_0_player_1" class="player_boost_bar top">
+                <h3 class="left_text" id="team_0_player_1_name">Player 1</h3>
+                <div class="boost_number boost_top_left">
+                    <h4 class="boost_tag text-center" id="team_0_player_1_boost">100</h4>
+                </div>
+                <div class="boost_bar">
+                    <div class="boost_bar_fill" id="team_0_player_1_boost_bar"></div>
+                </div>
+            </div>
+            <div data-player="player_1" id="team_0_player_1_events" class="top events" style="visibility: hidden;">
+                <i id="team_0_player_1_events_icon_1"></i>
+                <i id="team_0_player_1_events_icon_2"></i>
+            </div>
+            <div data-player="player_2" id="team_0_player_2" class="player_boost_bar middle">
+                <h3 class="left_text" id="team_0_player_2_name">Player 2</h3>
+                <div class="boost_number boost_middle_left">
+                    <h4 class="boost_tag text-center" id="team_0_player_2_boost">100</h4>
+                </div>
+                <div class="boost_bar">
+                    <div class="boost_bar_fill" id="team_0_player_2_boost_bar"></div>
+                </div>
+            </div>
+            <div data-player="player_2" id="team_0_player_2_events" class="middle events" style="visibility: hidden;">
+                <i id="team_0_player_2_events_icon_1"></i>
+                <i id="team_0_player_2_events_icon_2"></i>
+            </div>
+            <div data-player="player_3" id="team_0_player_3" class="player_boost_bar bottom">
+                <h3 class="left_text" id="team_0_player_3_name">Player 3</h3>
+                <div class="boost_number boost_bottom_left">
+                    <h4 class="boost_tag text-center" id="team_0_player_3_boost">100</h4>
+                </div>
+                <div class="boost_bar">
+                    <div class="boost_bar_fill" id="team_0_player_3_boost_bar"></div>
+                </div>
+            </div>
+            <div data-player="player_3" id="team_0_player_3_events" class="bottom events" style="visibility: hidden;">
+                <i id="team_0_player_3_events_icon_1"></i>
+                <i id="team_0_player_3_events_icon_2"></i>
+            </div>
+        </div>
+        <!-- End Left Players -->
+        <!-- Start Right Players -->
+        <div id="right_players_container" class="right">
+            <div data-player="player_4" id="team_1_player_1" class="player_boost_bar top_right">
+                <h3 class="right_text" id="team_1_player_1_name">Player 1</h3>
+                <div class="boost_number">
+                    <h4 class="boost_tag boost_tag_right text-center" id="team_1_player_1_boost">100</h4>
+                </div>
+                <div class="boost_bar boost_bar_right">
+                    <div class="boost_bar_fill boost_bar_fill_right" id="team_1_player_1_boost_bar"></div>
+                </div>
+            </div>
+            <div data-player="player_4" id="team_1_player_1_events" class="top events" style="visibility: hidden;">
+                <i id="team_1_player_1_events_icon_1"></i>
+                <i id="team_1_player_1_events_icon_2"></i>
+            </div>
+            <div data-player="player_5" id="team_1_player_2" class="player_boost_bar middle_right">
+                <h3 class="right_text" id="team_1_player_2_name">Player 2</h3>
+                <div class="boost_number">
+                    <h4 class="boost_tag boost_tag_right text-center" id="team_1_player_2_boost">100</h4>
+                </div>
+                <div class="boost_bar boost_bar_right">
+                    <div class="boost_bar_fill boost_bar_fill_right" id="team_1_player_2_boost_bar"></div>
+                </div>
+            </div>
+            <div data-player="player_5" id="team_1_player_2_events" class="middle events" style="visibility: hidden;">
+                <i id="team_1_player_2_events_icon_1"></i>
+                <i id="team_1_player_2_events_icon_2"></i>
+            </div>
+            <div data-player="player_6" id="team_1_player_3" class="player_boost_bar bottom_right">
+                <h3 class="right_text" id="team_1_player_3_name">Player 3</h3>
+                <div class="boost_number">
+                    <h4 class="boost_tag boost_tag_right text-center" id="team_1_player_3_boost">100</h4>
+                </div>
+                <div class="boost_bar boost_bar_right">
+                    <div class="boost_bar_fill boost_bar_fill_right" id="team_1_player_3_boost_bar"></div>
+                </div>
+            </div>
+            <div data-player="player_6" id="team_1_player_3_events" class="bottom events" style="visibility: hidden;">
+                <i id="team_1_player_3_events_icon_1"></i>
+                <i id="team_1_player_3_events_icon_2"></i>
+            </div>
+        </div>
+        <!-- End Right Players -->
+        <!-- Start Player Stats -->
+        <div id="player_stats_container" style="visibility: hidden;">
+            <!-- Start Player Stats Accent Bar -->
+            <div id="player_stats_accent_bar" style="visibility: hidden;">
+                <span class="player_stats_name_text" id="player_stats_name">Player Name</span>
+            </div>
+            <!-- End Player Stats Accent Bar -->
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-2">
                         <span class="player_stats_large_text" id="player_stats_goals">Goals</span>
                         <div class="clear"></div>
                         <span class="player_stats_small_text">Goals</span>
-                      </div>
-                      <div class="col-2">
+                    </div>
+                    <div class="col-2">
                         <span class="player_stats_large_text" id="player_stats_shots">Shots</span>
                         <div class="clear"></div>
                         <span class="player_stats_small_text">Shots</span>
-                      </div>
-                      <div class="col-2">
+                    </div>
+                    <div class="col-2">
                         <span class="player_stats_large_text" id="player_stats_asst">Asst</span>
                         <div class="clear"></div>
                         <span class="player_stats_small_text">Assists</span>
-                      </div>
-                      <div class="col-2 col-md-offset-1">
+                    </div>
+                    <div class="col-2 col-md-offset-1">
                         <span class="player_stats_large_text" id="player_stats_saves">Saves</span>
                         <div class="clear"></div>
                         <span class="player_stats_small_text">Saves</span>
-                      </div>
                     </div>
                 </div>
             </div>
-            <!-- End Player Stats -->
-            <!-- Start Boost Circle -->
-            <div id="boost_circle" style="visibility: hidden;">
-                <div id="gauge3" class="gauge-container three blue"></div>
-            </div>
-            <!-- End Boost Circle-->
-            <!-- Start Replay Stats -->
-            <div id="replay_stats_container" style="visibility: hidden;">
-                <div id="replay_stats_team_container">
-                    <span class="replay_stats_large_text" id="replay_stats_team"></span>
-                </div>
-                <div id="replay_stats_name_container">
-                    <i class="replay_stats_icon_goal"></i>
-                    <span class="icon_text" id="replay_stats_name"></span>
-                </div>
-                <div id="replay_stats_asst_container">
-                    <i class="replay_stats_icon_asst"></i>
-                    <span class="icon_text" id="replay_stats_asst"></span>
-                </div>
-            </div>
-            <!-- End Replay Stats -->
         </div>
-        <!-- Start Ads -->
-        <div id="ads_container" style="visibility: visible; display: block !important;">
-            <div id="ads_tn_outline">
-                <div id="ads_loop">
-                    <ul id="ads_list">                        
-                    </ul>
-                </div>
+        <!-- End Player Stats -->
+        <!-- Start Boost Circle -->
+        <div id="boost_circle" style="visibility: hidden;">
+            <div id="gauge3" class="gauge-container three blue"></div>
+        </div>
+        <!-- End Boost Circle-->
+        <!-- Start Replay Stats -->
+        <div id="replay_stats_container" style="visibility: hidden;">
+            <div id="replay_stats_team_container">
+                <span class="replay_stats_large_text" id="replay_stats_team"></span>
+            </div>
+            <div id="replay_stats_name_container">
+                <i class="replay_stats_icon_goal"></i>
+                <span class="icon_text" id="replay_stats_name"></span>
+            </div>
+            <div id="replay_stats_asst_container">
+                <i class="replay_stats_icon_asst"></i>
+                <span class="icon_text" id="replay_stats_asst"></span>
             </div>
         </div>
-        <!-- End Ads -->
-        <script>
-            window.REPLAY_STATS = {};
-        </script>
-        <!-- Boost Circle -->
-        <script src="./assets/js/gauge.min.js"></script>
-        <script src="./assets/js/boost-circle.js"></script>
-        <!-- Bootstrap JS -->
-        <script src="./assets/js/bootstrap.bundle.min.js"></script>
-        <!-- jQuery Dependency -->
-        <script src="./assets/js/jquery-3.6.0.min.js"></script>
-        <!-- WebSocket Connection -->
-        <script src="./assets/js/ws.js"></script>
-        <!-- Main Script -->
-        <script src="./assets/js/main.js"></script>
-        <!-- WebSocket Events -->
-        <script src="./assets/js/ws-events.js"></script>
-        <!-- Stat Feed -->
-        <script src="./assets/js/statfeed.js"></script>
-        <!-- Ads -->
-        <script src="./assets/js/ads.js"></script>
-    </body>
+        <!-- End Replay Stats -->
+    </div>
+    <!-- Start Ads -->
+    <div id="ads_container" style="visibility: visible; display: block !important;">
+        <div id="ads_tn_outline">
+            <div id="ads_loop">
+                <ul id="ads_list">
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- End Ads -->
+    <!-- Start Modal -->
+    <div id="error_modal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Error!</h2>
+            </div>
+            <div class="modal-body">
+                <p id="modal_msg">y</p>
+            </div>
+            <div class="modal-footer">
+                <h3>ETSU Esports Rocket League Overlay</h3>
+            </div>
+        </div>
+    </div>
+    <!-- End Modal -->
+    <script>
+        window.REPLAY_STATS = {};
+    </script>
+    <!-- Boost Circle -->
+    <script src="./assets/js/gauge.min.js"></script>
+    <script src="./assets/js/boost-circle.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="./assets/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery Dependency -->
+    <script src="./assets/js/jquery-3.6.0.min.js"></script>
+    <!-- WebSocket Connection -->
+    <script src="./assets/js/ws.js"></script>
+    <!-- Main Script -->
+    <script src="./assets/js/main.js"></script>
+    <!-- WebSocket Events -->
+    <script src="./assets/js/ws-events.js"></script>
+    <!-- Stat Feed -->
+    <script src="./assets/js/statfeed.js"></script>
+    <!-- Ads -->
+    <script src="./assets/js/ads.js"></script>
+</body>
+
 </html>

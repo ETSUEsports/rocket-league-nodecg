@@ -8,6 +8,14 @@ $(() => {
     WsSubscribers.subscribe("game", "replay_end", (d) => { //On Replay End event, update HTML Elements
         console.log(`Event: game:replay_end`);
         game_state.value = "Replay End";
+        $("#transition_img").attr('src', 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==');
+        $("#replay_stats_container").css('visibility', 'visible');
+        $("#replay_stats_asst_container").css('visibility', 'visible');
+        $("#left_players_container").css('visibility', 'hidden');
+        $("#right_players_container").css('visibility', 'hidden');
+        $("#boost_circle").css('visibility', 'hidden');
+        $("#score_container").css('visibility', 'hidden');
+        $("#main_container").addClass('replay_active');
     });
     WsSubscribers.subscribe("game", "goal_scored", (d) => { //On Goal Scored event, update HTML Elements
         console.log(`Event: game:goal_scored`);
@@ -19,6 +27,12 @@ $(() => {
         $("#player_stats_accent_bar").css('visibility', 'hidden');
         $("#ads_container").css('visibility', 'hidden');
         $("#boost_circle").css('visibility', 'hidden');
+        for (let i = 0; i < 3; i++) {
+            const team_0_player_number = Number(i)+1;
+            $(`#team_0_player_${team_0_player_number}_events`).css('visibility', 'hidden');
+            const team_1_player_number = Number(i)+4;
+            $(`#team_1_player_${team_1_player_number}_events`).css('visibility', 'hidden');
+        } 
         setTimeout(function() {
             if(d.scorer.teamnum == 0){
                 $("#transition_img").attr('src', './assets/img/stinger_blue.gif');
@@ -56,12 +70,22 @@ $(() => {
     });
     WsSubscribers.subscribe("game", "match_created", (d) => { //On Match Created event, update HTML Elements
         console.log(`Event: game:match_created`);
+        hideModal();
         game_state.value = "Match Created";
         $("#blue_team").removeClass('game_over');
         $("#orange_team").removeClass('game_over');
         $("#game_clock").removeClass('game_over');
         $("#left_players_container").removeClass('game_over');
         $("#right_players_container").removeClass('game_over');
+        $("#boost_circle").css('visibility', 'hidden');
+        $("#main_container").css('visibility', 'visible');
+        $("#replay_stats_container").css('visibility', 'hidden');
+        $("#replay_stats_asst_container").css('visibility', 'hidden');
+        $("#main_container").removeClass('replay_active');
+        $("#left_players_container").css('visibility', 'visible');
+        $("#right_players_container").css('visibility', 'visible');
+        $("#score_container").css('visibility', 'visible');
+        $("#ads_container").css('visibility', 'visible');
         $("#boost_circle").css('visibility', 'hidden');
     });
     WsSubscribers.subscribe("game", "initialized", (d) => { //On Initialized event, update HTML Elements
@@ -111,11 +135,42 @@ $(() => {
     });
     WsSubscribers.subscribe("game", "podium_start", (d) => { //On Podium Start event, update HTML Elements
         console.log(`Event: game: podium_start`);
+        $("#blue_team").addClass('game_over');
+        $("#orange_team").addClass('game_over');
+        $("#game_clock").addClass('game_over');
+        $("#left_players_container").addClass('game_over');
+        $("#right_players_container").addClass('game_over');
         game_state.value = "Podium Started";
     });
     WsSubscribers.subscribe("game", "match_destroyed", (d) => { //On Match Destroyed event, update HTML Elements
         console.log(`Event: game: match_destroyed`);
+        hideModal();
         game_state.value = "Match Destroyed";
+        $("#main_container").css('visibility', 'hidden');
+        $("#replay_stats_container").css('visibility', 'hidden');
+        $("#replay_stats_asst_container").css('visibility', 'hidden');
+        $("#main_container").removeClass('replay_active');
+        $("#left_players_container").css('visibility', 'hidden');
+        $("#right_players_container").css('visibility', 'hidden');
+        $("#score_container").css('visibility', 'hidden');
+        $("#ads_container").css('visibility', 'hidden');
+        $("#boost_circle").css('visibility', 'hidden');
+        for (let i = 0; i < 3; i++) {
+            const team_0_player_number = Number(i)+1;
+            $(`#team_0_player_${team_0_player_number}`).attr('data-player', `player_${team_0_player_number}`);
+            $(`#team_0_player_${team_0_player_number}_events`).attr('data-player', `player_${team_0_player_number}`);
+            $(`#team_0_player_${team_0_player_number}_events`).css('visibility', 'hidden');
+            $(`#team_0_player_${team_0_player_number}_name`).text(`Player ${team_0_player_number}`);
+            $(`#team_0_player_${team_0_player_number}_boost`).text(33);
+            $(`#team_0_player_${team_0_player_number}_boost_bar`).width(`${33}%`);
+            const team_1_player_number = Number(i)+4;
+            $(`#team_1_player_${team_1_player_number}`).attr('data-player', `player_${team_1_player_number}`);
+            $(`#team_1_player_${team_1_player_number}_events`).attr('data-player', `player_${team_1_player_number}`);
+            $(`#team_1_player_${team_1_player_number}_events`).css('visibility', 'hidden');
+            $(`#team_1_player_${team_1_player_number}_name`).text(`Player ${team_1_player_number}`);
+            $(`#team_1_player_${team_1_player_number}_boost`).text(33);
+            $(`#team_1_player_${team_1_player_number}_boost_bar`).width(`${33}%`);
+        } 
     });
 });
 
@@ -125,4 +180,13 @@ function truncateString(string, limit) {
     } else {
       return string
     }
+}
+
+function showModal(message) {
+    $("#modal_msg").html(message);
+    $('#error_modal').show();
+}
+
+function hideModal(){
+    $('#error_modal').hide();
 }

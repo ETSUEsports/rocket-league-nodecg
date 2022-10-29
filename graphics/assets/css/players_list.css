@@ -130,71 +130,70 @@ h3.right_text{
     background: none !important;
     background-color: rgb(165, 90, 19) !important;
 }
-
-.events_active_left{
+.events_focused_left{
     background: none !important;
     background-color: rgb(17, 72, 153) !important;
 }
-.events_active_right{
+.events_focused_right{
     background: none !important;
     background-color: rgb(165, 90, 19) !important;
 }
 
 #team_0_player_1_events{
-    width: 100px;
+    width: 55px;
     height: 44px;
     margin-bottom: 4px;
     position: absolute;
     top: 0px;
-    left: 293px;
-    clip-path: polygon(0 0, 94% 0, 100% 100%, 6% 100%);
+    left: 293.9px;
+    clip-path: polygon(0 0, 92% 0, 100% 100%, 10.9% 100%);
 }
 #team_0_player_2_events{
-    width: 100px;
+    width: 55px;
     height: 44px;
     margin-bottom: 4px;
     position: absolute;
     top: 48px;
-    left: 303px;
-    clip-path: polygon(0 0, 94% 0, 100% 100%, 6% 100%);
+    left: 303.8px;
+    clip-path: polygon(0 0, 92% 0, 100% 100%, 11.2% 100%);
 }
 #team_0_player_3_events{
-    width: 100px;
+    width: 55px;
     height: 44px;
     margin-bottom: 4px;
     position: absolute;
     top: 96px;
-    left: 313px;
-    clip-path: polygon(0 0, 94% 0, 100% 100%, 6% 100%);
+    left: 313.5px;
+    clip-path: polygon(0 0, 92% 0, 100% 100%, 11.4% 100%);
 }
 
 
 #team_1_player_1_events{
-    width: 100px;
+    width: 55px;
     height: 44px;
     margin-bottom: 4px;
     position: absolute;
     top: 0px;
-    right: 293px;
-    clip-path: polygon(6% 0, 100% 0, 96% 100%, 0% 100%);
+    right: 294px;
+    clip-path: polygon(8% 0, 100% 0, 89.2% 100%, 0% 100%);
 }
 #team_1_player_2_events{
-    width: 100px;
+    width: 55px;
     height: 44px;
     margin-bottom: 4px;
     position: absolute;
     top: 48px;
-    right: 303px;
-    clip-path: polygon(6% 0, 100% 0, 96% 100%, 0% 100%);
+    right: 303.9px;
+    clip-path: polygon(8% 0, 100% 0, 89.3% 100%, 0% 100%);
 }
 #team_1_player_3_events{
-    width: 100px;
+    width: 55px;
     height: 44px;
     margin-bottom: 4px;
     position: absolute;
     top: 96px;
-    right: 313px;
-    clip-path: polygon(6% 0, 100% 0, 96% 100%, 0% 100%);
+    right: 313.6px;
+    clip-path: polygon(8% 0, 100% 0, 88.5% 100%, 0% 100%);
 }
 
 #team_0_player_1_events_icon_1,#team_0_player_2_events_icon_1,#team_0_player_3_events_icon_1{
@@ -214,14 +213,14 @@ h3.right_text{
 
 #team_1_player_1_events_icon_1,#team_1_player_2_events_icon_1,#team_1_player_3_events_icon_1{
     top: 2px;
-    left: 50px;
+    left: 10px;
     position: absolute;
     height: 40px;
     width: 40px;
 }
 #team_1_player_1_events_icon_2,#team_1_player_2_events_icon_2,#team_1_player_3_events_icon_2{
     top: 2px;
-    left: 10px;
+    left: 50px;
     position: absolute;
     height: 40px;
     width: 40px;
@@ -241,4 +240,8 @@ h3.right_text{
     background-image: url(../img/DEMO_ICON.png);
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.active_events{
+    background-color: rgba(33,48,67,0.8);
 }

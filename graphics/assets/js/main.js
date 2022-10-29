@@ -61,10 +61,14 @@ $(() => {
                 for(var i=0; i<left_team.length; i++){
                     if(left_team[i].id==focused_player.id){
                         $(`#team_0_player_${i+1}`).addClass('player_focused_left');
+                        $(`#team_0_player_${i+1}_events`).addClass('player_focused_left');
                         $(`#team_1_player_${i+1}`).removeClass('player_focused_right');
+                        $(`#team_1_player_${i+1}_events`).removeClass('player_focused_right');
                     }else{
                         $(`#team_0_player_${i+1}`).removeClass('player_focused_left');
                         $(`#team_1_player_${i+1}`).removeClass('player_focused_right');
+                        $(`#team_0_player_${i+1}_events`).removeClass('player_focused_left');
+                        $(`#team_1_player_${i+1}_events`).removeClass('player_focused_right');
                     }
                 }
                 $("#player_stats_container").addClass('left_team_stats');
@@ -77,10 +81,14 @@ $(() => {
                 for(var i=0; i<right_team.length; i++){
                     if(right_team[i].id==focused_player.id){
                         $(`#team_1_player_${i+1}`).addClass('player_focused_right');
+                        $(`#team_1_player_${i+1}_events`).addClass('player_focused_right');
                         $(`#team_0_player_${i+1}`).removeClass('player_focused_left');
+                        $(`#team_0_player_${i+1}_events`).removeClass('player_focused_left');
                     }else{
                         $(`#team_1_player_${i+1}`).removeClass('player_focused_right');
                         $(`#team_0_player_${i+1}`).removeClass('player_focused_left');
+                        $(`#team_1_player_${i+1}_events`).removeClass('player_focused_right');
+                        $(`#team_0_player_${i+1}_events`).removeClass('player_focused_left');
                     }
                 }
                 $("#player_stats_container").removeClass('left_team_stats');
@@ -98,6 +106,9 @@ $(() => {
             $("#boost_circle").css('visibility', 'hidden');
         }
         //Convert Time from Seconds to MM:SS
+        if(game_data['time_seconds'] > 1800){
+            showModal("The game clock is longer than 30 minutes, there may be visual bugs in the overlay!");
+        }
         const time = secondsToMS(game_data['time_seconds']);
         //Update Scores
         cg_left_team.value.score = teams[0]['score'];
@@ -226,6 +237,8 @@ $(() => {
         const player_data = newVal.player_data;
         for (const p in player_names) {
             const player_number = Number(p)+1;
+            $(`#team_0_player_${player_number}`).attr('data-player', player_data[p].id);
+            $(`#team_0_player_${player_number}_events`).attr('data-player', player_data[p].id);
             $(`#team_0_player_${player_number}_name`).text(truncateString(player_names[p], 18));
             $(`#team_0_player_${player_number}_boost`).text(player_data[p].boost);
             $(`#team_0_player_${player_number}_boost_bar`).width(`${player_data[p].boost}%`);
@@ -285,6 +298,8 @@ $(() => {
         const player_data = newVal.player_data;
         for (const p in player_names) {
             const player_number = Number(p)+1;
+            $(`#team_1_player_${player_number}`).attr('data-player', player_data[p].id);
+            $(`#team_1_player_${player_number}_events`).attr('data-player', player_data[p].id);
             $(`#team_1_player_${player_number}_name`).text(truncateString(player_names[p], 18));
             $(`#team_1_player_${player_number}_boost`).text(player_data[p].boost);
             $(`#team_1_player_${player_number}_boost_bar`).width(`${player_data[p].boost}%`);
@@ -312,4 +327,13 @@ function truncateString(string, limit) {
     } else {
       return string
     }
+}
+
+function showModal(message) {
+    $("#modal_msg").html(message);
+    $('#error_modal').show();
+}
+
+function hideModal(){
+    $('#error_modal').hide();
 }

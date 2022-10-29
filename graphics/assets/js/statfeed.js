@@ -11,6 +11,8 @@ $(() => {
             player.name = d.main_target.name;
             player.team = d.main_target.team_num;
             console.log(`${player.name} on team ${player.team} made a shot on goal`);
+            console.log($(`.events[data-player="${d.main_target.id}"]`).children('i')[0]);
+            showActivity(d.main_target.id, 'icon_shot');
         } else if(d.event_name == "Save"){
             const player = {
                 "name": "",
@@ -20,6 +22,7 @@ $(() => {
             player.name = d.main_target.name;
             player.team = d.main_target.team_num;
             console.log(`${player.name} on team ${player.team} made a save on goal`);
+            showActivity(d.main_target.id, 'icon_save');
         } else if(d.event_name == "Demolish"){
             const attacker = {
                 "name": "",
@@ -35,27 +38,19 @@ $(() => {
             victim.name = d.secondary_target.name;
             victim.team = d.secondary_target.team_num;
             console.log(`${attacker.name} on team ${attacker.team} demo'ed ${victim.name} on team ${victim.team}`);
+            showActivity(d.main_target.id, 'icon_demo');
         }
     });
 });
 
-function showActivity(team_id, activity_type, slot, player_id, victim_team_id, victim_player_id) {
-    const target = `team_${team_id}_player_${player_id}_events_icon_${slot}`;
-    switch (activity_type){
-        case "SHOT":
-            $(target).removeClass();
-            $(target).addClass("icon_shot");
-        case "SAVE":
-            $(target).removeClass();
-            $(target).addClass("icon_save");
-        case "DEMO":
-            $(target).removeClass();
-            $(target).addClass("icon_demo");
-            const victim = `team_${victim_team_id}_player_${victim_player_id}_events_icon_${slot}`;
-    }
-
-}
-
-function addActivity(team_id, activity_type, player_id, victim_team_id, victim_player_id){
-    statfeed.push({"team_id": team_id, "activity_type": activity_type, "player_id": player_id, "victim_team_id": victim_team_id, "victim_player_id": victim_player_id});
+async function showActivity(target_id, icon){
+    console.log(`Showing ${icon} for ${target_id}`);
+    $(`.events[data-player="${target_id}"]`).css('visibility', 'visible');
+    $(`.events[data-player="${target_id}"]`).addClass('active_events')
+    $(`.events[data-player="${target_id}"] i:first`).addClass(icon).delay(8000).queue(function( next ){
+        $(`.events[data-player="${target_id}"] i:first`).removeClass(icon); 
+        $(`.events[data-player="${target_id}"]`).removeClass('active_events');
+        $(`.events[data-player="${target_id}"]`).css('visibility', 'hidden');
+        next();
+    });
 }
