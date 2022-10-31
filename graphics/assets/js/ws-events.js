@@ -28,10 +28,11 @@ $(() => {
         $("#ads_container").css('visibility', 'hidden');
         $("#boost_circle").css('visibility', 'hidden');
         for (let i = 0; i < 3; i++) {
-            const team_0_player_number = Number(i)+1;
-            $(`#team_0_player_${team_0_player_number}_events`).css('visibility', 'hidden');
-            const team_1_player_number = Number(i)+4;
-            $(`#team_1_player_${team_1_player_number}_events`).css('visibility', 'hidden');
+            const player_number = Number(i)+1;
+            $(`#team_0_player_${player_number}_events`).css('visibility', 'hidden');
+            $(`#team_0_player_${player_number}_events`).removeClass('player_focused_left');
+            $(`#team_1_player_${player_number}_events`).css('visibility', 'hidden');
+            $(`#team_1_player_${player_number}_events`).removeClass('player_focused_right');
         } 
         setTimeout(function() {
             if(d.scorer.teamnum == 0){
