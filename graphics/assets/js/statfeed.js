@@ -47,7 +47,7 @@ async function showActivity(target_id, icon){
     console.log(`Showing ${icon} for ${target_id}`);
     $(`.events[data-player="${target_id}"]`).css('visibility', 'visible');
     $(`.events[data-player="${target_id}"]`).addClass('active_events')
-    $(`.events[data-player="${target_id}"] i:first`).addClass(icon).delay(8000).queue(function( next ){
+    $(`.events[data-player="${target_id}"] i:first`).addClass(icon).delay(4500).queue(function( next ){
         $(`.events[data-player="${target_id}"] i:first`).removeClass(icon); 
         $(`.events[data-player="${target_id}"]`).removeClass('active_events');
         $(`.events[data-player="${target_id}"]`).css('visibility', 'hidden');

@@ -30,9 +30,13 @@ $(() => {
         for (let i = 0; i < 3; i++) {
             const player_number = Number(i)+1;
             $(`#team_0_player_${player_number}_events`).css('visibility', 'hidden');
-            $(`#team_0_player_${player_number}_events`).removeClass('player_focused_left');
+            $(`#team_0_player_${player_number}_events`).removeClass('active_events player_focused_left');
             $(`#team_1_player_${player_number}_events`).css('visibility', 'hidden');
-            $(`#team_1_player_${player_number}_events`).removeClass('player_focused_right');
+            $(`#team_1_player_${player_number}_events`).removeClass('active_events player_focused_right');
+            $(`#team_0_player_${player_number}_events_icon_1`).removeClass();
+            $(`#team_0_player_${player_number}_events_icon_2`).removeClass();
+            $(`#team_1_player_${player_number}_events_icon_1`).removeClass();
+            $(`#team_1_player_${player_number}_events_icon_2`).removeClass();
         } 
         setTimeout(function() {
             if(d.scorer.teamnum == 0){
