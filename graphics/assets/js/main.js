@@ -22,7 +22,8 @@ $(() => {
         }
     });
     console.log("Connecting to WebSocket");
-    WsSubscribers.init(window.location.hostname, 49322, true);
+    //WsSubscribers.init(window.location.hostname, 49322, true);
+    WsSubscribers.init('localhost', 49322, true);
     WsSubscribers.subscribe("game", "update_state", (d) => {
         //On Update State event, send to NodeCG
         const game_data = d['game'];
