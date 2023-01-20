@@ -92,9 +92,18 @@
 			<div class="col s12">
 				<ul class="left">
 					<li>
-						<button class="btn waves-effect waves-light btn-large" onclick="addGame()"><i class="material-icons left">add</i>Add Game</button> <button class="btn waves-effect waves-light btn-large red" onclick="removeGame()"><i class="material-icons left">remove</i>Remove Game</button><div class="switch"><h4>Game Settings</h4><label>Best of 3 (5 Game Max)<input type="checkbox" onclick='handleChange(this);' id="best_of_select"><span class="lever"></span>Best of 5 (7 Game Max)</label></div>
-
-						<div class="switch"><h4>Ad Setting</h4><label>Hide Ads<input type="checkbox" onclick='adToggle(this);' id="ads_show"><span class="lever"></span>Show Ads</label></div>
+						<button class="btn waves-effect waves-light btn-large" onclick="addGame()"><i class="material-icons left">add</i>Add Game</button> <button class="btn waves-effect waves-light btn-large red" onclick="removeGame()"><i class="material-icons left">remove</i>Remove Game</button>
+						<div class="switch">
+							<h4>Game Settings</h4><label>Best of 3 (5 Game Max)<input type="checkbox" onclick='handleChange(this);' id="best_of_select"><span class="lever"></span>Best of 5 (7 Game Max)</label>
+						</div>
+						<div class="switch">
+							<h4>Ad Setting</h4><label>Hide Ads<input type="checkbox" onclick='adToggle(this);' id="ads_show"><span class="lever"></span>Show Ads</label>
+						</div>
+						<div class="switch">
+							<h4>Casters</h4>
+							<button class="btn waves-effect waves-light btn-large" onclick="changeCaster('left')"><i class="material-icons left">create</i>Change Caster Left</button>
+							<button class="btn waves-effect waves-light btn-large" onclick="changeCaster('right')"><i class="material-icons left">create</i>Change Caster Right</button>
+						</div>
 					</li>
 				</ul>
 				<ul class="right">

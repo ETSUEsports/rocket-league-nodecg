@@ -26,6 +26,10 @@ const right_team = nodecg.Replicant('right_team', {defaultValue: {
     "name_color": true,
     "digit_color": true
 }});
+const casters = nodecg.Replicant('casters', {defaultValue: {
+    "left": "Caster L",
+    "right": "Caster R",
+}});
 const left_team_color = document.querySelector('#left_team_color');
 const right_team_color = document.querySelector('#right_team_color');
 const left_team_score = document.querySelector('#left_score');
@@ -125,6 +129,29 @@ function changeName(team){
         } else {
             text = name;
             right_team.value.name = text;  
+        }
+        
+    }
+}
+
+function changeCaster(side){
+    if(side == "left"){
+        let name = prompt("Please enter a name: ");
+        let text;
+        if (name == null || name == "") {
+            
+        } else {
+            text = name;
+            casters.value.left = text;
+        }
+        
+    }else{
+        let name = prompt("Please enter a name: ");
+        let text;
+        if (name == null || name == "") {
+        } else {
+            text = name;
+            casters.value.right = text;  
         }
         
     }

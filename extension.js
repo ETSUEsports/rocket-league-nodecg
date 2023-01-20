@@ -4,8 +4,11 @@ module.exports = function (nodecg) {
 	const current_game = nodecg.Replicant('current_game');
 	const left_team = nodecg.Replicant('left_team');
 	const right_team = nodecg.Replicant('right_team');
-    	const router = nodecg.Router();
+    const router = nodecg.Router();
 	const game_max = nodecg.Replicant('game_max');
+    const left_team_score_card = nodecg.Replicant('assets:left_team_score_card');
+    const right_team_score_card = nodecg.Replicant('assets:right_team_score_card');
+	const casters = nodecg.Replicant('casters');
 
     router.post('/team/:team/score/add', (req, res, error) => {
 		try{
@@ -102,6 +105,19 @@ module.exports = function (nodecg) {
 		catch (err){
 			next(err);
 		}
+    });
+	router.get('/vmix', (req, res) => {
+		const data = [{
+			TEAM_L_NAME: left_team.value.name.toLowerCase(),
+			TEAM_R_NAME: right_team.value.name.toLowerCase(),
+			TEAM_L_IMG: `http://localhost:9090${left_team_score_card.value[0].url}`,
+			TEAM_R_IMG: `http://localhost:9090${right_team_score_card.value[0].url}`,
+			TEAM_L_SCORE: left_team.value.games_won,
+			TEAM_R_SCORE: right_team.value.games_won,
+			CASTER_L: casters.value.left.toLowerCase(),
+			CASTER_R: casters.value.right.toLowerCase(),
+		}];
+		res.send(data);
     });
     nodecg.mount('/etsu-rl', router);
 };
